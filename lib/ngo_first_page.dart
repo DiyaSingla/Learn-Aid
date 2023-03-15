@@ -117,7 +117,7 @@ class _FirstPageState extends State<FirstPage> {
                   ),
                 ),
               ),
-              Container(
+              /*Container(
                 width: 300,
                 height: 50,
                 margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -141,7 +141,7 @@ class _FirstPageState extends State<FirstPage> {
                     contentPadding: EdgeInsets.all(10),
                   ),
                 ),
-              ),
+              ),*/
               Container(
                 width: 300,
                 height: 50,
