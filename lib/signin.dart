@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:learn_aid/registration_page.dart';
 import 'dashboard.dart';
 import 'signup.dart';
 
@@ -18,11 +19,11 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
-          Colors.red,
-          Color.fromARGB(255, 250, 97, 148),
-          Color.fromARGB(255, 249, 147, 181)
+          Color.fromARGB(255, 0, 0, 0),
+          Color.fromARGB(255, 43, 40, 41),
+          Color.fromARGB(255, 105,102,103)
         ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: SingleChildScrollView(
             child: Padding(
@@ -31,17 +32,17 @@ class _SignInState extends State<SignIn> {
           child: Column(
             children: <Widget>[
               logoWidget("images/learnaidlogo.jpeg"),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               reusableTextField("Enter Username", Icons.person_outline, false,
                   _emailTextController),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               reusableTextField("Enter Password", Icons.lock_outline, true,
                   _passwordTextController),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               signInSignUpButton(context, true, () {
@@ -51,7 +52,7 @@ class _SignInState extends State<SignIn> {
                         password: _passwordTextController.text)
                     .then((value) {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Dashboard()));
+                      MaterialPageRoute(builder: (context) => RegistrationPage()));
                 }).onError((error, stackTrace) {
                   print("Error ${error.toString()}");
                 });

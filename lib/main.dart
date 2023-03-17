@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:learn_aid/logoPage.dart';
 import 'signin.dart';
 
 void main() async {
@@ -13,12 +14,12 @@ class MyApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Little Immune',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: 'Learn Aid',
+      theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: const SignIn(),
+      home: const MyHomePage(
+        title: 'Learn Aid',
+      ),
     );
   }
 }

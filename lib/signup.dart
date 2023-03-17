@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:learn_aid/registration_page.dart';
 import 'dashboard.dart';
 import 'reusable_widget.dart';
 
@@ -18,9 +19,9 @@ class _SignUpState extends State<SignUp> {
       body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
-            Colors.red,
-            Color.fromARGB(255, 250, 97, 148),
-            Color.fromARGB(255, 249, 147, 181)
+            Color.fromARGB(255, 0, 0, 0),
+          Color.fromARGB(255, 43, 40, 41),
+          Color.fromARGB(255, 105,102,103)
           ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           child: SingleChildScrollView(
               child: Padding(
@@ -49,7 +50,7 @@ class _SignUpState extends State<SignUp> {
                       .then((value) {
                     print("Created New Account");
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Dashboard()));
+                        MaterialPageRoute(builder: (context) => RegistrationPage()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });
