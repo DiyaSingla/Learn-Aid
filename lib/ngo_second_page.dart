@@ -1,30 +1,66 @@
 import 'package:flutter/material.dart';
 import 'registration_page.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'ngo_first_page.dart';
+import 'write_ngodata.dart';
+
+
+
 class NextNGOPage extends StatefulWidget {
   const NextNGOPage({super.key});
 
   @override
-  State<NextNGOPage> createState() => _NextNGOPageState();
+  State<NextNGOPage> createState() => NextNGOPageState();
+
+  
 }
 
-class _NextNGOPageState extends State<NextNGOPage> {
-  int _selectedValue = 0;
-  String _numcls1 = '';
-  String _numcls2 = '';
-  String _numcls3 = '';
-  String _numcls4 = '';
-  String _numcls5 = '';
+class NextNGOPageState extends State<NextNGOPage> {
+  FirstPageState z = FirstPageState();
+  //WriteNgoData w = new WriteNgoData();   // xyzilovejunk@gmail.com
 
-  String _hrto = '';
-  String _hrfrom = '';
+  int _selectedValue = 0;
+  String ncls1 = '';
+  String ncls2 = '';
+  String ncls3 = '';
+  String ncls4 = '';
+  String ncls5 = '';
+
+  String hto = '';
+  String hfrom = '';
   bool _ischecked = false;
-  String? _selectedClass;
+  String? selectedClass;
   final List<String> _section = [
     'Saturday',
     'Sunday',
     'Both',
   ];
+  Stream<List<NgoUser2>> readUsers() => FirebaseFirestore.instance
+      .collection('NgoUser2')
+      .snapshots()
+      .map((snapshot) =>
+          snapshot.docs.map((doc) => NgoUser2.fromJson(doc.data())).toList());
+  Future createUser(WriteNgoData user)async {
+      final docUser = FirebaseFirestore.instance.collection('NgoUsers').doc();
+      final user = WriteNgoData(
+        id : docUser.id,
+        name : z.ngoName,
+        phone : z.ph,
+        add1 : z.add1,
+        add2 : z.add2,
+        numcls1 : ncls1,
+        numcls2 : ncls2,
+        numcls3 : ncls3,
+        numcls4 : ncls4,
+        numcls5 : ncls5,
+        hrto : hto,
+        hrfrom: hfrom,
+        selectedClass : this.selectedClass,
+      );
+      final json = user.toJson();
+      await docUser.set(json);
+  }  
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +128,7 @@ class _NextNGOPageState extends State<NextNGOPage> {
                           onChanged: (value) {
                             setState(
                               () {
-                                _numcls1 = value;
+                                ncls1 = value;
                               },
                             );
                           },
@@ -128,7 +164,7 @@ class _NextNGOPageState extends State<NextNGOPage> {
                           onChanged: (value) {
                             setState(
                               () {
-                                _numcls2 = value;
+                                ncls2 = value;
                               },
                             );
                           },
@@ -164,7 +200,7 @@ class _NextNGOPageState extends State<NextNGOPage> {
                           onChanged: (value) {
                             setState(
                               () {
-                                _numcls3 = value;
+                                ncls3 = value;
                               },
                             );
                           },
@@ -200,7 +236,7 @@ class _NextNGOPageState extends State<NextNGOPage> {
                           onChanged: (value) {
                             setState(
                               () {
-                                _numcls4 = value;
+                                ncls4 = value;
                               },
                             );
                           },
@@ -236,7 +272,7 @@ class _NextNGOPageState extends State<NextNGOPage> {
                           onChanged: (value) {
                             setState(
                               () {
-                                _numcls5 = value;
+                                ncls5 = value;
                               },
                             );
                           },
@@ -270,7 +306,7 @@ class _NextNGOPageState extends State<NextNGOPage> {
                       ),
                       const SizedBox(height: 10),
                       DropdownButton<String>(
-                        value: _selectedClass,
+                        value: selectedClass,
                         items: _section
                             .map(
                               (sec) => DropdownMenuItem<String>(
@@ -282,7 +318,7 @@ class _NextNGOPageState extends State<NextNGOPage> {
                         hint: const Text('Select a day'),
                         onChanged: (newValue) {
                           setState(() {
-                            _selectedClass = newValue;
+                            selectedClass = newValue;
                           });
                         },
                       ),
@@ -315,7 +351,7 @@ class _NextNGOPageState extends State<NextNGOPage> {
                           onChanged: (value) {
                             setState(
                               () {
-                                _hrfrom = value;
+                                hfrom = value;
                               },
                             );
                           },
@@ -324,7 +360,7 @@ class _NextNGOPageState extends State<NextNGOPage> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 3,
                 ),
                 Container(
@@ -350,7 +386,7 @@ class _NextNGOPageState extends State<NextNGOPage> {
                           onChanged: (value) {
                             setState(
                               () {
-                                _hrto = value;
+                                hto = value;
                               },
                             );
                           },
@@ -393,6 +429,21 @@ class _NextNGOPageState extends State<NextNGOPage> {
           floatingActionButton: _ischecked == true
               ? FloatingActionButton(
                   onPressed: () {
+                    final user = WriteNgoData(
+                      name : z.ngoName,
+                      phone : z.ph,
+                      add1 : z.add1,
+                      add2 : z.add2,
+                      numcls1: ncls1,
+                      numcls2: ncls2,
+                      numcls3: ncls3,
+                      numcls4: ncls4,
+                      numcls5: ncls5,
+                      hrto: hto,
+                      hrfrom: hfrom,
+                      //selectedClass: _selectedClass,
+                    );
+                    createUser(user);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -404,4 +455,51 @@ class _NextNGOPageState extends State<NextNGOPage> {
               : SizedBox()),
     );
   }
+}
+
+class NgoUser2 {
+  String id;
+  String numcls1;
+  String numcls2;
+  String numcls3;
+  String numcls4;
+  String numcls5;
+  String hrto;
+  String hrfrom;
+  String? selectedClass;
+
+  NgoUser2({
+    this.id = '',
+    this.numcls1 = '',
+    this.numcls2 = '',
+    this.numcls3 = '',
+    this.numcls4 = '',
+    this.numcls5 = '',
+    this.hrto = '',
+    this.hrfrom = '',
+    this.selectedClass = '',
+  });
+
+  Map<String, String> toJson() => {
+        'id': id,
+        'numcls1': numcls1,
+        'numcls2': numcls2,
+        'numcls3': numcls3,
+        'numcls4': numcls4,
+        'numcls5': numcls5,
+        'hrto': hrto,
+        'hrfrom': hrfrom,
+        //'selectedClass' : selectedClass,
+      };
+
+  static NgoUser2 fromJson(Map<String, dynamic> json) => NgoUser2(
+        id: json['id'],
+        numcls1: json['numcls1'],
+        numcls2: json['numcls2'],
+        numcls3: json['numcls3'],
+        numcls4: json['numcls4'],
+        numcls5: json['numcls5'],
+        hrto: json['hrto'],
+        hrfrom: json['hrfrom'],
+      );
 }

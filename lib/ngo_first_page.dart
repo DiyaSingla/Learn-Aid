@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'ngo_second_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,19 +9,38 @@ class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
 
   @override
-  State<FirstPage> createState() => _FirstPageState();
+  State<FirstPage> createState() => FirstPageState();
 }
 
-class _FirstPageState extends State<FirstPage> {
+class FirstPageState extends State<FirstPage> {
+  final controllerName = TextEditingController();
+  final controllerPh = TextEditingController();
+  final controllerAdd1 = TextEditingController();
+  final controllerAdd2 = TextEditingController();
+  
   final _auth = FirebaseAuth.instance;
   bool showProgress = false;
   String email="", password="";
   int _selectedValue = 0;
-  String _ngoName = '';
-  String _phone = '';
-  String _email = '';
-  String _add1 = '';
-  String _add2 = '';
+  String ngoName = '';
+  String ph = '';
+  //String _email = '';
+  String add1 = '';
+  String add2 = '';
+
+
+  /*Future createUser(NgoUser1 user)async {
+      final docUser = FirebaseFirestore.instance.collection('NgoUser1').doc();
+      final user = NgoUser1(
+        id : docUser.id,
+        name : ngoName,
+        phone : ph,
+        add1 : add1,
+        add2 : add2,
+      );
+      final json = user.toJson();
+      await docUser.set(json);
+  }*/
  
   @override
   Widget build(BuildContext context) {
@@ -74,9 +96,10 @@ class _FirstPageState extends State<FirstPage> {
                   color: Colors.white.withOpacity(0.3),
                 ),
                 child: TextField(
+                  controller : controllerName,
                   onChanged: (value) {
                     // store the value entered in the text field
-                    _ngoName = value;
+                    ngoName = value;
                   },
                   //textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -89,7 +112,7 @@ class _FirstPageState extends State<FirstPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Container(
@@ -102,9 +125,10 @@ class _FirstPageState extends State<FirstPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextField(
+                  controller : controllerPh,
                   onChanged: (value) {
                     // store the value entered in the text field
-                    _phone = value;
+                    ph = value;
                   },
                   //textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -152,9 +176,10 @@ class _FirstPageState extends State<FirstPage> {
                   color: Colors.white.withOpacity(0.3),
                 ),
                 child: TextField(
+                  controller : controllerAdd1,
                   onChanged: (value) {
                     // store the value entered in the text field
-                    _add1 = value;
+                    add1 = value;
                   },
                   //textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -167,7 +192,7 @@ class _FirstPageState extends State<FirstPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
 
@@ -181,9 +206,10 @@ class _FirstPageState extends State<FirstPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextField(
+                  controller : controllerAdd2,
                   onChanged: (value) {
                     // store the value entered in the text field
-                    _add2 = value;
+                    add2 = value;
                   },
                   //textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -387,15 +413,53 @@ class _FirstPageState extends State<FirstPage> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
+          child: const Text('Next'),
+          onPressed: () {  
+
+           
+            //createUser(user);        
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const NextNGOPage()),
             );
           },
-          child: const Text('Next'),
+          
         ),
       ),
     );
+    
+    
+    
   }
+}
+class NgoUser1 {
+  String id;
+  String name;
+  final String phone;
+  final String add1;
+  final String add2;
+
+  NgoUser1 ({
+    this.id = '',
+    this.name = '',
+    this.phone = '',
+    this.add1 = '',
+    this.add2 = '',
+  });
+
+  Map<String, String> toJson() => {
+    'id' : id,
+    'name' : name,
+    'phone' : phone,
+    'add1' : add1,
+    'add2' : add2,
+  };
+
+  static NgoUser1 fromJson(Map<String, dynamic> json) => NgoUser1(
+        id: json['id'],
+        name : json['name'],
+        phone : json['phone'],
+        add1: json['add1'],
+        add2: json['add2']
+      );
 }
