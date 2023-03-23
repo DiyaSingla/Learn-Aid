@@ -8,17 +8,22 @@ import 'write_ngodata.dart';
 
 
 class NextNGOPage extends StatefulWidget {
-  const NextNGOPage({super.key});
-
-  @override
-  State<NextNGOPage> createState() => NextNGOPageState();
-
+  String name;
   
+  NextNGOPage({super.key,required this.name});
+  @override
+  State<NextNGOPage> createState() => NextNGOPageState(this.name);
 }
 
 class NextNGOPageState extends State<NextNGOPage> {
+  
+  NextNGOPageState(String n) {
+    this.name = n;
+  }
+  late String name;
   FirstPageState z = FirstPageState();
-  //WriteNgoData w = new WriteNgoData();   // xyzilovejunk@gmail.com
+  //NextNGOPage w = NextNGOPage();
+  //WriteNgoData w = new WriteNgoData();   // xyzilovejunk@gmail.com  //pizzapasta
 
   int _selectedValue = 0;
   String ncls1 = '';
@@ -45,7 +50,7 @@ class NextNGOPageState extends State<NextNGOPage> {
       final docUser = FirebaseFirestore.instance.collection('NgoUsers').doc();
       final user = WriteNgoData(
         id : docUser.id,
-        name : z.ngoName,
+        name : name,
         phone : z.ph,
         add1 : z.add1,
         add2 : z.add2,

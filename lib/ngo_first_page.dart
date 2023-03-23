@@ -420,7 +420,7 @@ class FirstPageState extends State<FirstPage> {
             //createUser(user);        
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const NextNGOPage()),
+              MaterialPageRoute(builder: (context) => NextNGOPage(name : ngoName)),
             );
           },
           
