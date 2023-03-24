@@ -69,8 +69,94 @@ class WriteNgoData {
         selectedClass : json['selectedClass'],
       );
 
-  
-
+  Future createUserNgo(WriteNgoData user)async {
+      final docUser = FirebaseFirestore.instance.collection('NgoUsers').doc();
+      final user1 = WriteNgoData(
+        id : docUser.id,
+        name : user.name,
+        phone : user.phone,
+        add1 : user.add1,
+        add2 : user.add2,
+        numcls1 : user.numcls1,
+        numcls2 : user.numcls2,
+        numcls3 : user.numcls3,
+        numcls4 : user.numcls4,
+        numcls5 : user.numcls5,
+        hrto : user.hrto,
+        hrfrom: user.hrfrom,
+        selectedClass : user.selectedClass,
+      );
+      id = docUser.id;
+      final json = user1.toJson();
+      await docUser.set(json);
+  }
 }
 
+
+class WriteMentorData{
+  String id;
+  int collegeStudent;  //selected value
+  String org;
+  String name;
+  String age;
+  String ph;
+  String? selectedClass;
+  String? selectedSubject;
+  String? selectedTopic;
+
+  WriteMentorData({
+    this.id = '',
+    this.collegeStudent = 0,
+    this.org = '',
+    this.name = '', 
+    this.ph = '',
+    this.age = '',
+    selectedClass ='',
+    selectedSubject ='',
+    selectedTopic = '',
+  });
+
+  Map<String, dynamic> toJson() => {
+    'id' : id,
+    'name' : name,
+    'age' : age,
+    'phone' : ph,
+    'collegeStudentOrNot' : collegeStudent,
+    'organisation' : org,
+    'selectedClass' : selectedClass,
+    'selectedSubject' : selectedSubject,
+    'selectedTopic' : selectedTopic,
+  };
+
+  static WriteMentorData fromJson(Map<String, dynamic> json) => WriteMentorData(
+    id: json['id'],
+    name : json['name'],
+    age : json['age'],
+    ph : json['phone'],
+    collegeStudent: json['collegeStudentOrNot'],
+    org: json['organisation'],
+    selectedClass : json['selectedClass'],
+    selectedSubject : json['selectedSubject'],
+    selectedTopic: json['selectedTopic'],
+  );
+
+  Future createUserMentor(WriteMentorData user)async {
+      final docUser = FirebaseFirestore.instance.collection('MentorUsers').doc();
+      final user1 = WriteMentorData(
+        id : docUser.id,
+        name : user.name,
+        age: user.age,
+        ph : user.ph,
+        collegeStudent: user.collegeStudent,
+        org: user.org,
+        selectedClass : user.selectedClass,
+        selectedSubject: user.selectedSubject,
+        selectedTopic: user.selectedTopic,
+      );
+      id = docUser.id;
+      final json = user1.toJson();
+      await docUser.set(json);
+  }
+
+}
 

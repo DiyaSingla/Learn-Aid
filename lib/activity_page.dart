@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_aid/write_ngodata.dart';
 import 'ngo_second_page.dart';
 import 'ngo_first_page.dart';
 
@@ -6,14 +7,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ActivityPage extends StatelessWidget {
 
-  Stream<List<NgoUser1>> readUsers() => FirebaseFirestore.instance
-      .collection('NgoUser1')
+  Stream<List<WriteNgoData>> readUsers() => FirebaseFirestore.instance
+      .collection('NgoUsers')
       .snapshots()
       .map((snapshot) =>
-          snapshot.docs.map((doc) => NgoUser1.fromJson(doc.data())).toList());
+          snapshot.docs.map((doc) => WriteNgoData.fromJson(doc.data())).toList());
 
-  Widget buildUser(NgoUser1 user) => ListTile(
-    leading: CircleAvatar(child: Text('${user.name}')),
+  Widget buildUser(WriteNgoData user) => ListTile(
+    leading: CircleAvatar(child: Text(user.name)),
     title: Text(user.phone),
     subtitle: Text(user.add1),
   );
@@ -24,7 +25,7 @@ class ActivityPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Favorites Page"),
       ), 
-      body: StreamBuilder<List<NgoUser1>>(
+      body: StreamBuilder<List<WriteNgoData>>(
         stream : readUsers(),
         builder: (context, snapshot){
           if (snapshot.hasError) {

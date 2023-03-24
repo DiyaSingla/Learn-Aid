@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_aid/write_ngodata.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'mentor_second_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,12 +12,13 @@ class MentorFirstPage extends StatefulWidget {
 }
 
 class _MentorFirstPageState extends State<MentorFirstPage> {
-  int _selectedValue = 0;
-  String _cardNumber = '';
-  String _name = '';
-  String _age = '';
-  String _number = '';
-  String _proof = '';
+  WriteMentorData m = WriteMentorData();
+  int selectedValue = 0;
+  String org = '';
+  String name = '';
+  String age = '';
+  String ph = '';
+  //String _proof = '';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -93,7 +95,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               child: TextField(
                 onChanged: (value) {
                   // store the value entered in the text field
-                  _name = value;
+                  name = value;
                 },
                 //textAlign: TextAlign.center,
                 decoration: InputDecoration(
@@ -121,7 +123,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               child: TextField(
                 onChanged: (value) {
                   // store the value entered in the text field
-                  _age = value;
+                  age = value;
                 },
                 //textAlign: TextAlign.center,
                 decoration: InputDecoration(
@@ -146,7 +148,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               child: TextField(
                 onChanged: (value) {
                   // store the value entered in the text field
-                  _number = value;
+                  ph = value;
                 },
                 //textAlign: TextAlign.center,
                 decoration: InputDecoration(
@@ -180,10 +182,10 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     children: <Widget>[
                       Radio(
                         value: 0,
-                        groupValue: _selectedValue,
+                        groupValue: selectedValue,
                         onChanged: (value) {
                           setState(() {
-                            _selectedValue = 0;
+                            selectedValue = 0;
                           });
                         },
                       ),
@@ -202,10 +204,10 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     children: <Widget>[
                       Radio(
                         value: 1,
-                        groupValue: _selectedValue,
+                        groupValue: selectedValue,
                         onChanged: (value) {
                           setState(() {
-                            _selectedValue = 1;
+                            selectedValue = 1;
                           });
                         },
                       ),
@@ -235,7 +237,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               child: TextField(
                 onChanged: (value) {
                   // store the value entered in the text field
-                  _cardNumber = value;
+                  org = value;
                 },
                 textAlign: TextAlign.left,
                 decoration: InputDecoration(
@@ -292,10 +294,22 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          final user = WriteMentorData(
+            name : name,
+            age : age,
+            ph : ph,
+            collegeStudent: selectedValue,
+            org : org,
+            selectedClass: '',
+            selectedSubject: '',
+            selectedTopic: '',
+          );
+          m.createUserMentor(user);
+
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => NextMentorPage(),
+              builder: (context) => NextMentorPage(Id : m.id),
             ),
           );
         },

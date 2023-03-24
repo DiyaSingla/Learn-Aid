@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'ngo_second_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'write_ngodata.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -13,10 +14,7 @@ class FirstPage extends StatefulWidget {
 }
 
 class FirstPageState extends State<FirstPage> {
-  final controllerName = TextEditingController();
-  final controllerPh = TextEditingController();
-  final controllerAdd1 = TextEditingController();
-  final controllerAdd2 = TextEditingController();
+  WriteNgoData w = WriteNgoData();
   
   final _auth = FirebaseAuth.instance;
   bool showProgress = false;
@@ -96,7 +94,7 @@ class FirstPageState extends State<FirstPage> {
                   color: Colors.white.withOpacity(0.3),
                 ),
                 child: TextField(
-                  controller : controllerName,
+                  
                   onChanged: (value) {
                     // store the value entered in the text field
                     ngoName = value;
@@ -125,7 +123,7 @@ class FirstPageState extends State<FirstPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextField(
-                  controller : controllerPh,
+                  
                   onChanged: (value) {
                     // store the value entered in the text field
                     ph = value;
@@ -176,7 +174,7 @@ class FirstPageState extends State<FirstPage> {
                   color: Colors.white.withOpacity(0.3),
                 ),
                 child: TextField(
-                  controller : controllerAdd1,
+                  
                   onChanged: (value) {
                     // store the value entered in the text field
                     add1 = value;
@@ -206,7 +204,7 @@ class FirstPageState extends State<FirstPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextField(
-                  controller : controllerAdd2,
+                 
                   onChanged: (value) {
                     // store the value entered in the text field
                     add2 = value;
@@ -416,20 +414,31 @@ class FirstPageState extends State<FirstPage> {
           child: const Text('Next'),
           onPressed: () {  
 
-           
-            //createUser(user);        
+           final user = WriteNgoData(
+              name : ngoName,
+              phone : ph,
+              add1 : add1,
+              add2 : add2,
+              numcls1: '',
+              numcls2: '',
+              numcls3: '',
+              numcls4: '',
+              numcls5: '',
+              hrto: '',
+              hrfrom: '',
+              selectedClass: '',
+            );
+            w.createUserNgo(user);
+                   
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => NextNGOPage(name : ngoName)),
+              MaterialPageRoute(builder: (context) => NextNGOPage(ID : w.id)),
             );
           },
           
         ),
       ),
-    );
-    
-    
-    
+    );   
   }
 }
 class NgoUser1 {

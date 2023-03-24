@@ -5,25 +5,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'ngo_first_page.dart';
 import 'write_ngodata.dart';
 
-
+// use widget.variablename to access variable value in stateful widgets
 
 class NextNGOPage extends StatefulWidget {
-  String name;
+  String ID;
   
-  NextNGOPage({super.key,required this.name});
+  NextNGOPage({super.key,required this.ID});
   @override
-  State<NextNGOPage> createState() => NextNGOPageState(this.name);
+  State<NextNGOPage> createState() => NextNGOPageState();
 }
 
 class NextNGOPageState extends State<NextNGOPage> {
-  
-  NextNGOPageState(String n) {
-    this.name = n;
-  }
-  late String name;
-  FirstPageState z = FirstPageState();
-  //NextNGOPage w = NextNGOPage();
-  //WriteNgoData w = new WriteNgoData();   // xyzilovejunk@gmail.com  //pizzapasta
+
+  WriteNgoData w = WriteNgoData();   // xyzilovejunk@gmail.com  //pizzapasta
 
   int _selectedValue = 0;
   String ncls1 = '';
@@ -46,11 +40,11 @@ class NextNGOPageState extends State<NextNGOPage> {
       .snapshots()
       .map((snapshot) =>
           snapshot.docs.map((doc) => NgoUser2.fromJson(doc.data())).toList());
-  Future createUser(WriteNgoData user)async {
+  /*Future createUser(WriteNgoData user)async {
       final docUser = FirebaseFirestore.instance.collection('NgoUsers').doc();
       final user = WriteNgoData(
         id : docUser.id,
-        name : name,
+        name : widget.name,
         phone : z.ph,
         add1 : z.add1,
         add2 : z.add2,
@@ -65,7 +59,7 @@ class NextNGOPageState extends State<NextNGOPage> {
       );
       final json = user.toJson();
       await docUser.set(json);
-  }  
+  } */ 
 
   @override
   Widget build(BuildContext context) {
@@ -434,21 +428,19 @@ class NextNGOPageState extends State<NextNGOPage> {
           floatingActionButton: _ischecked == true
               ? FloatingActionButton(
                   onPressed: () {
-                    final user = WriteNgoData(
-                      name : z.ngoName,
-                      phone : z.ph,
-                      add1 : z.add1,
-                      add2 : z.add2,
-                      numcls1: ncls1,
-                      numcls2: ncls2,
-                      numcls3: ncls3,
-                      numcls4: ncls4,
-                      numcls5: ncls5,
-                      hrto: hto,
-                      hrfrom: hfrom,
-                      //selectedClass: _selectedClass,
-                    );
-                    createUser(user);
+
+                    final docUser = FirebaseFirestore.instance.collection('NgoUsers').doc(widget.ID);
+                    docUser.update({
+                      'numcls1': ncls1,
+                      'numcls2': ncls2,
+                      'numcls3': ncls3,
+                      'numcls4': ncls4,
+                      'numcls5': ncls5,
+                      'hrto': hto,
+                      'hrfrom': hfrom,
+                      'selectedClass': selectedClass,
+                    });
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'registration_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class NextMentorPage extends StatefulWidget {
-  const NextMentorPage({Key? key}) : super(key: key);
-
+  const NextMentorPage({Key? key,required this.Id}) : super(key: key);
+  final String Id;
   @override
   _NextMentorPageState createState() => _NextMentorPageState();
 }
 
 class _NextMentorPageState extends State<NextMentorPage> {
-  String? _selectedClass;
-  String? _selectedSubject;
-  String? _selectedTopic;
+  String? selectedClass;
+  String? selectedSubject;
+  String? selectedTopic;
   bool _isChecked = false;
   String inputButtonValue = '';
 
@@ -69,7 +70,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
               ),
               SizedBox(height: 10),
               DropdownButton<String>(
-                value: _selectedClass,
+                value: selectedClass,
                 items: _section
                     .map(
                       (sec) => DropdownMenuItem<String>(
@@ -84,7 +85,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                 ),
                 onChanged: (newValue) {
                   setState(() {
-                    _selectedClass = newValue;
+                    selectedClass = newValue;
                   });
                 },
               ),
@@ -99,7 +100,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
               ),
               SizedBox(height: 10),
               DropdownButton<String>(
-                value: _selectedSubject,
+                value: selectedSubject,
                 items: _subjects
                     .map(
                       (subject) => DropdownMenuItem<String>(
@@ -114,7 +115,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                 ),
                 onChanged: (newValue) {
                   setState(() {
-                    _selectedSubject = newValue;
+                    selectedSubject = newValue;
                   });
                 },
               ),
@@ -129,7 +130,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
               ),
               SizedBox(height: 10),
               DropdownButton<String>(
-                value: _selectedTopic,
+                value: selectedTopic,
                 items: _topics
                     .map(
                       (topic) => DropdownMenuItem<String>(
@@ -148,7 +149,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                 onChanged: (newValue) {
                   setState(
                     () {
-                      _selectedTopic = newValue;
+                      selectedTopic = newValue;
                     },
                   );
                 },
@@ -177,9 +178,17 @@ class _NextMentorPageState extends State<NextMentorPage> {
                       ? ElevatedButton(
                           onPressed: () {
                             // Store the value when the button is pressed
-                            inputButtonValue = 'some value';
+                            /*inputButtonValue = 'some value';
                             print(
-                                'Button pressed with input value: $inputButtonValue');
+                                'Button pressed with input value: $inputButtonValue');*/
+                            final docUser = FirebaseFirestore.instance.collection('NgoUsers').doc(widget.Id);
+                            docUser.update({
+                              'selectedClass': selectedClass,
+                              'selectedSubject': selectedSubject,
+                              'selectedTopic': selectedSubject,
+                            });
+
+
                             Navigator.push(
                               context,
                               MaterialPageRoute(
