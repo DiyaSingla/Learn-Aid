@@ -26,14 +26,14 @@ class _AboutUsState extends State<AboutUs> {
           child: Column(
             children: [
               SizedBox(height: 20),
-              Text(
+              const Text(
                 'Here is how you can contact us',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.normal,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -45,10 +45,10 @@ class _AboutUsState extends State<AboutUs> {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     InkWell(
                       child: Row(
-                        children: [
+                        children: const [
                           Icon(Icons.phone),
                           SizedBox(width: 10),
                           Text(
@@ -59,10 +59,10 @@ class _AboutUsState extends State<AboutUs> {
                       ),
                       onTap: () => launch('tel:+1234567890'),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     InkWell(
                       child: Row(
-                        children: [
+                        children: const [
                           Icon(Icons.email),
                           SizedBox(width: 10),
                           Text(
@@ -77,21 +77,21 @@ class _AboutUsState extends State<AboutUs> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'About Us',
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'We did this for GSC.',
                 style: TextStyle(fontSize: 18),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -127,8 +127,8 @@ class _AboutUsState extends State<AboutUs> {
                         children: [
                           Image.network(
                               'https://via.placeholder.com/200x200.png?text=Image+3'),
-                          SizedBox(height: 10),
-                          Text('Image 3'),
+                          const SizedBox(height: 10),
+                          const Text('Image 3'),
                         ],
                       ),
                     ),
@@ -139,8 +139,8 @@ class _AboutUsState extends State<AboutUs> {
                         children: [
                           Image.network(
                               'https://via.placeholder.com/200x200.png?text=Image+4'),
-                          SizedBox(height: 10),
-                          Text('Image 4'),
+                          const SizedBox(height: 10),
+                          const Text('Image 4'),
                         ],
                       ),
                     ),

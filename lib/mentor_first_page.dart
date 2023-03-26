@@ -54,13 +54,15 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               margin: const EdgeInsets.all(5.0),
               child: Image.network(
                 "https://img.freepik.com/free-vector/teacher-standing-near-blackboard-holding-stick-isolated-flat-vector-illustration-cartoon-woman-character-near-chalkboard-pointing-alphabet_74855-8600.jpg",
-                width: 400,
-                height: 100,
+                // width: 360,
+                // height: 90,
+                height: MediaQuery.of(context).size.height * 0.15 ,
+                width: MediaQuery.of(context).size.width * 0.9,
                 fit: BoxFit.cover,
               ),
             ),
             SizedBox(
-              height: 10,
+              height: MediaQuery.of(context).size.height * 0.001,
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 0),
@@ -81,11 +83,11 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: MediaQuery.of(context).size.height * 0.005,
             ),
             Container(
-              width: 300,
-              height: 50,
+              height: MediaQuery.of(context).size.height * 0.06,
+              width: MediaQuery.of(context).size.width * 0.75,
               margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               decoration: BoxDecoration(
@@ -109,11 +111,11 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               ),
             ),
             SizedBox(
-              height: 5,
+              height: MediaQuery.of(context).size.height * 0.002,
             ),
             Container(
-              width: 300,
-              height: 50,
+              height: MediaQuery.of(context).size.height * 0.06,
+              width: MediaQuery.of(context).size.width * 0.75,
               margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               decoration: BoxDecoration(
@@ -136,9 +138,12 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                 ),
               ),
             ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.002,
+            ),
             Container(
-              width: 300,
-              height: 50,
+              height: MediaQuery.of(context).size.height * 0.06,
+              width: MediaQuery.of(context).size.width * 0.75,
               margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               decoration: BoxDecoration(
@@ -162,7 +167,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               ),
             ),
             SizedBox(
-              height: 5,
+             height: MediaQuery.of(context).size.height * 0.002,
             ),
             Container(
               padding: EdgeInsets.all(5.0),
@@ -226,8 +231,8 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               ),
             ),
             Container(
-              width: 300,
-              height: 50,
+              height: MediaQuery.of(context).size.height * 0.06,
+              width: MediaQuery.of(context).size.width * 0.75,
               margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               decoration: BoxDecoration(
@@ -251,10 +256,12 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: MediaQuery.of(context).size.height * 0.015,
             ),
             Container(
               alignment: Alignment.center,
+              height: MediaQuery.of(context).size.height * 0.06,
+              width: MediaQuery.of(context).size.width * 0.75,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -288,8 +295,8 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          height: 15.0,
-          width: 15.0,
+          height: 10.0,
+          width: 10.0,
         ),
       ),
       floatingActionButton: FloatingActionButton(

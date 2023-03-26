@@ -1,10 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'activity_page.dart';
 import 'about_us.dart';
 import 'mentor_first_page.dart';
 import 'donation_page.dart';
 import 'ngo_first_page.dart';
-
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
 
@@ -52,141 +52,164 @@ class _RegistrationPageState extends State<RegistrationPage> {
   }
 
   @override
+  
+
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Registration Button',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Registration Page'),
+          centerTitle: true,
+          backgroundColor: Color(0xff4a4a4a),
+          title: Text('Registration Page'),
         ),
         body: Container(
           // padding: EdgeInsets.zero,
           constraints: const BoxConstraints.expand(),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('images/background.jpg'),
-              fit: BoxFit.cover,
-            ),
-          ),
+          color: Colors.black87,
+          // decoration: const BoxDecoration(
+          //   // image: DecorationImage(
+          //   //   //image: AssetImage('images/background.jpg'),
+          //   //   fit: BoxFit.cover,
+          //   // ),
+          // ),
+
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 100.0),
-                  child: Center(
-                    child: Container(
-                      margin: const EdgeInsets.all(10.0),
-                      alignment: Alignment.center,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 20), // Set button padding
-                          minimumSize:
-                              const Size(150, 50), // Set minimum button size
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                10), // Set rounded corner radius
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => FirstPage()),
-                          );
-                        },
-                        child: const Text(
-                          'Register as NGO  ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Alkalami",
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20.0),
-                  child: Center(
-                    child: Container(
-                      margin: const EdgeInsets.all(10.0),
-                      alignment: Alignment.center,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 25,
-                              vertical: 20), // Set button padding
-                          minimumSize: Size(150, 50), // Set minimum button size
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                10), // Set rounded corner radius
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MentorFirstPage()),
-                          );
-                        },
-                        child: const Text(
-                          'Register as Mentor',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Alkalami",
-                            fontSize: 20,
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                  1, MediaQuery.of(context).size.height * 0.1, 1, 0),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 1.0),
+                    child: Center(
+                      child: Material(
+                        color: Colors.white10,
+                        elevation: 8,
+                        borderRadius: BorderRadius.circular(28),
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        child: InkWell(
+                          splashColor: Colors.black26,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FirstPage()),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              Ink.image(
+                                image: const NetworkImage(
+                                    'https://danamojo.org/site/wp-content/uploads/2016/04/ngo-building.png'),
+                                // height: 200,
+                                // width: 200,
+                                height: MediaQuery.of(context).size.height * 0.25,
+                                width: MediaQuery.of(context).size.width * 0.50,
+                                fit: BoxFit.cover,
+                              ),
+                              const SizedBox(height: 6),
+                              const Text(
+                                'Register as NGO',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              const SizedBox(
+                                height: 6,
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20.0),
-                  child: Center(
-                    child: Container(
-                      margin: const EdgeInsets.all(10.0),
-                      alignment: Alignment.center,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 25,
-                              vertical: 20), // Set button padding
-                          minimumSize: Size(150, 50), // Set minimum button size
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                10), // Set rounded corner radius
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DonationPage()),
-                          );
-                        },
-                        child: const Text(
-                          'Donation Volunteer',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Alkalami",
-                            fontSize: 20,
+
+                  Padding(
+                    padding: EdgeInsets.only(top: 20.0),
+                    child: Center(
+                      child: Material(
+                        color: Colors.white10,
+                        elevation: 8,
+                        borderRadius: BorderRadius.circular(28),
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        child: InkWell(
+                          splashColor: Colors.black26,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MentorFirstPage()),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              Ink.image(
+                                image: const NetworkImage(
+                                    'https://d22bbllmj4tvv8.cloudfront.net/d5/c0/efaeb96d41e3a674f8d2ed576bed/what-is-mentoring1-square.jpg'),
+                                // height: 200,
+                                // width: 200,
+                                height: MediaQuery.of(context).size.height * 0.25,
+                                width: MediaQuery.of(context).size.width * 0.50,
+                                fit: BoxFit.cover,
+                              ),
+                              SizedBox(height: 6),
+                              const Text(
+                                'Register as Mentor',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              const SizedBox(
+                                height: 6,
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+
+                  // Padding(
+                  //   padding: EdgeInsets.only(top: 20.0),
+                  //   child: Center(
+                  //     child: Container(
+                  //       margin: const EdgeInsets.all(10.0),
+                  //       alignment: Alignment.center,
+                  //       child: ElevatedButton(
+                  //         style: ElevatedButton.styleFrom(
+                  //           padding: const EdgeInsets.symmetric(
+                  //               horizontal: 25,
+                  //               vertical: 20), // Set button padding
+                  //           minimumSize: Size(150, 50), // Set minimum button size
+                  //           shape: RoundedRectangleBorder(
+                  //             borderRadius: BorderRadius.circular(
+                  //                 10), // Set rounded corner radius
+                  //           ),
+                  //         ),
+                  //         onPressed: () {
+                  //           Navigator.push(
+                  //             context,
+                  //             MaterialPageRoute(
+                  //                 builder: (context) => DonationPage()),
+                  //           );
+                  //         },
+                  //         child: const Text(
+                  //           'Donation Volunteer',
+                  //           style: TextStyle(
+                  //             fontWeight: FontWeight.bold,
+                  //             fontFamily: "Alkalami",
+                  //             fontSize: 20,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                ],
+              ),
             ),
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: "Home",

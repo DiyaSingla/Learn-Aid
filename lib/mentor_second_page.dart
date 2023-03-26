@@ -178,17 +178,9 @@ class _NextMentorPageState extends State<NextMentorPage> {
                       ? ElevatedButton(
                           onPressed: () {
                             // Store the value when the button is pressed
-                            /*inputButtonValue = 'some value';
+                            inputButtonValue = 'some value';
                             print(
-                                'Button pressed with input value: $inputButtonValue');*/
-                            final docUser = FirebaseFirestore.instance.collection('NgoUsers').doc(widget.Id);
-                            docUser.update({
-                              'selectedClass': selectedClass,
-                              'selectedSubject': selectedSubject,
-                              'selectedTopic': selectedSubject,
-                            });
-
-
+                                'Button pressed with input value: $inputButtonValue');
                             Navigator.push(
                               context,
                               MaterialPageRoute(
