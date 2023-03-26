@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:learn_aid/write_ngodata.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'mentor_second_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'signin.dart';
 
 class MentorFirstPage extends StatefulWidget {
-  const MentorFirstPage({super.key});
+  const MentorFirstPage({super.key, required this.email});
+  final String email;
 
   @override
   State<MentorFirstPage> createState() => _MentorFirstPageState();
@@ -56,7 +57,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                 "https://img.freepik.com/free-vector/teacher-standing-near-blackboard-holding-stick-isolated-flat-vector-illustration-cartoon-woman-character-near-chalkboard-pointing-alphabet_74855-8600.jpg",
                 // width: 360,
                 // height: 90,
-                height: MediaQuery.of(context).size.height * 0.15 ,
+                height: MediaQuery.of(context).size.height * 0.15,
                 width: MediaQuery.of(context).size.width * 0.9,
                 fit: BoxFit.cover,
               ),
@@ -167,7 +168,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               ),
             ),
             SizedBox(
-             height: MediaQuery.of(context).size.height * 0.002,
+              height: MediaQuery.of(context).size.height * 0.002,
             ),
             Container(
               padding: EdgeInsets.all(5.0),
@@ -302,21 +303,22 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           final user = WriteMentorData(
-            name : name,
-            age : age,
-            ph : ph,
+            name: name,
+            age: age,
+            ph: ph,
             collegeStudent: selectedValue,
-            org : org,
+            org: org,
             selectedClass: '',
             selectedSubject: '',
             selectedTopic: '',
+            email: widget.email,
           );
           m.createUserMentor(user);
 
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => NextMentorPage(Id : m.id),
+              builder: (context) => NextMentorPage(Id: m.id),
             ),
           );
         },

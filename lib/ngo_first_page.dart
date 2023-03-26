@@ -7,7 +7,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'write_ngodata.dart';
 
 class FirstPage extends StatefulWidget {
-  const FirstPage({super.key});
+  const FirstPage({super.key, required this.email});
+  final String email;
 
   @override
   State<FirstPage> createState() => FirstPageState();
@@ -15,17 +16,16 @@ class FirstPage extends StatefulWidget {
 
 class FirstPageState extends State<FirstPage> {
   WriteNgoData w = WriteNgoData();
-  
+
   final _auth = FirebaseAuth.instance;
   bool showProgress = false;
-  String email="", password="";
+  String email = "", password = "";
   int _selectedValue = 0;
   String ngoName = '';
   String ph = '';
   //String _email = '';
   String add1 = '';
   String add2 = '';
-
 
   /*Future createUser(NgoUser1 user)async {
       final docUser = FirebaseFirestore.instance.collection('NgoUser1').doc();
@@ -39,7 +39,7 @@ class FirstPageState extends State<FirstPage> {
       final json = user.toJson();
       await docUser.set(json);
   }*/
- 
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -94,7 +94,6 @@ class FirstPageState extends State<FirstPage> {
                   color: Colors.white.withOpacity(0.3),
                 ),
                 child: TextField(
-                  
                   onChanged: (value) {
                     // store the value entered in the text field
                     ngoName = value;
@@ -123,7 +122,6 @@ class FirstPageState extends State<FirstPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextField(
-                  
                   onChanged: (value) {
                     // store the value entered in the text field
                     ph = value;
@@ -174,7 +172,6 @@ class FirstPageState extends State<FirstPage> {
                   color: Colors.white.withOpacity(0.3),
                 ),
                 child: TextField(
-                  
                   onChanged: (value) {
                     // store the value entered in the text field
                     add1 = value;
@@ -204,7 +201,6 @@ class FirstPageState extends State<FirstPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextField(
-                 
                   onChanged: (value) {
                     // store the value entered in the text field
                     add2 = value;
@@ -412,13 +408,12 @@ class FirstPageState extends State<FirstPage> {
         ),
         floatingActionButton: FloatingActionButton(
           child: const Text('Next'),
-          onPressed: () {  
-
-           final user = WriteNgoData(
-              name : ngoName,
-              phone : ph,
-              add1 : add1,
-              add2 : add2,
+          onPressed: () {
+            final user = WriteNgoData(
+              name: ngoName,
+              phone: ph,
+              add1: add1,
+              add2: add2,
               numcls1: '',
               numcls2: '',
               numcls3: '',
@@ -427,48 +422,17 @@ class FirstPageState extends State<FirstPage> {
               hrto: '',
               hrfrom: '',
               selectedClass: '',
+              email: widget.email,
             );
             w.createUserNgo(user);
-                   
+
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => NextNGOPage(ID : w.id)),
+              MaterialPageRoute(builder: (context) => NextNGOPage(ID: w.id)),
             );
           },
-          
         ),
       ),
-    );   
+    );
   }
-}
-class NgoUser1 {
-  String id;
-  String name;
-  final String phone;
-  final String add1;
-  final String add2;
-
-  NgoUser1 ({
-    this.id = '',
-    this.name = '',
-    this.phone = '',
-    this.add1 = '',
-    this.add2 = '',
-  });
-
-  Map<String, String> toJson() => {
-    'id' : id,
-    'name' : name,
-    'phone' : phone,
-    'add1' : add1,
-    'add2' : add2,
-  };
-
-  static NgoUser1 fromJson(Map<String, dynamic> json) => NgoUser1(
-        id: json['id'],
-        name : json['name'],
-        phone : json['phone'],
-        add1: json['add1'],
-        add2: json['add2']
-      );
 }

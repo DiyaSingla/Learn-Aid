@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:learn_aid/activity_page.dart';
 import 'registration_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class NextMentorPage extends StatefulWidget {
-  const NextMentorPage({Key? key,required this.Id}) : super(key: key);
+  const NextMentorPage({Key? key, required this.Id}) : super(key: key);
   final String Id;
   @override
   _NextMentorPageState createState() => _NextMentorPageState();
@@ -181,17 +182,19 @@ class _NextMentorPageState extends State<NextMentorPage> {
                             /*inputButtonValue = 'some value';
                             print(
                                 'Button pressed with input value: $inputButtonValue');*/
-                            final docUser = FirebaseFirestore.instance.collection('MentorUsers').doc(widget.Id);
+                            final docUser = FirebaseFirestore.instance
+                                .collection('MentorUsers')
+                                .doc(widget.Id);
                             docUser.update({
                               'selectedClass': selectedClass,
-                              'selectedSubject' : selectedSubject,
-                              'selectedTopic' : selectedTopic,
+                              'selectedSubject': selectedSubject,
+                              'selectedTopic': selectedTopic,
                             });
 
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => RegistrationPage(),
+                                builder: (context) => ActivityPage(),
                               ),
                             );
                           },

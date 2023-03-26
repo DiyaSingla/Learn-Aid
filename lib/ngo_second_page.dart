@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_aid/activity_page.dart';
 import 'registration_page.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -9,15 +10,14 @@ import 'write_ngodata.dart';
 
 class NextNGOPage extends StatefulWidget {
   String ID;
-  
-  NextNGOPage({super.key,required this.ID});
+
+  NextNGOPage({super.key, required this.ID});
   @override
   State<NextNGOPage> createState() => NextNGOPageState();
 }
 
 class NextNGOPageState extends State<NextNGOPage> {
-
-  WriteNgoData w = WriteNgoData();   // xyzilovejunk@gmail.com  //pizzapasta
+  WriteNgoData w = WriteNgoData(); // xyzilovejunk@gmail.com  //pizzapasta
 
   int _selectedValue = 0;
   String ncls1 = '';
@@ -59,7 +59,7 @@ class NextNGOPageState extends State<NextNGOPage> {
       );
       final json = user.toJson();
       await docUser.set(json);
-  } */ 
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -428,8 +428,9 @@ class NextNGOPageState extends State<NextNGOPage> {
           floatingActionButton: _ischecked == true
               ? FloatingActionButton(
                   onPressed: () {
-
-                    final docUser = FirebaseFirestore.instance.collection('NgoUsers').doc(widget.ID);
+                    final docUser = FirebaseFirestore.instance
+                        .collection('NgoUsers')
+                        .doc(widget.ID);
                     docUser.update({
                       'numcls1': ncls1,
                       'numcls2': ncls2,
@@ -443,8 +444,7 @@ class NextNGOPageState extends State<NextNGOPage> {
 
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const RegistrationPage()),
+                      MaterialPageRoute(builder: (context) => ActivityPage()),
                     );
                   },
                   child: const Text('Submit'),

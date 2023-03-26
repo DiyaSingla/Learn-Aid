@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_aid/activity_page.dart';
 import 'registration_page.dart';
 
 class DonationPage extends StatefulWidget {
@@ -150,8 +151,7 @@ class _DonationPageState extends State<DonationPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const RegistrationPage()),
+                        MaterialPageRoute(builder: (context) => ActivityPage()),
                       );
                     },
                     child: const Text('Submit'),

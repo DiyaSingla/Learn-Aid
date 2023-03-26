@@ -23,7 +23,7 @@ class _SignInState extends State<SignIn> {
             gradient: LinearGradient(colors: [
           Color.fromARGB(255, 0, 0, 0),
           Color.fromARGB(255, 43, 40, 41),
-          Color.fromARGB(255, 105,102,103)
+          Color.fromARGB(255, 105, 102, 103)
         ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: SingleChildScrollView(
             child: Padding(
@@ -51,8 +51,11 @@ class _SignInState extends State<SignIn> {
                         email: _emailTextController.text,
                         password: _passwordTextController.text)
                     .then((value) {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => RegistrationPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RegistrationPage(
+                              email: _emailTextController.text)));
                 }).onError((error, stackTrace) {
                   print("Error ${error.toString()}");
                 });
@@ -69,7 +72,7 @@ class _SignInState extends State<SignIn> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don;t have an account?",
+        const Text("Don't have an account?",
             style: TextStyle(color: Colors.white70)),
         GestureDetector(
           onTap: () {

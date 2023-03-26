@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_aid/activity_page.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 import 'registration_page.dart';
@@ -154,7 +155,7 @@ class _AboutUsState extends State<AboutUs> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RegistrationPage(),
+                        builder: (context) => ActivityPage(),
                       ),
                     );
                   },
@@ -168,4 +169,3 @@ class _AboutUsState extends State<AboutUs> {
     );
   }
 }
-
