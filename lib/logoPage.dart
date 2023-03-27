@@ -36,29 +36,42 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
+    return MaterialApp(
+       debugShowCheckedModeBanner:false,
+      home: Scaffold(
+        body: Container(
+          constraints: const BoxConstraints.expand(),
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 0, 0, 0),
-          Color.fromARGB(255, 43, 40, 41),
-          Color.fromARGB(255, 105,102,103)
-            ])
-          ),
-        ),
-        Center(
-          child: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('images/learnaidlogo.jpeg'),
-                // fit: BoxFit.cover,
-              ),
+            image: DecorationImage(
+              image: AssetImage('images/learnaidlogo.jpeg'),
+              fit: BoxFit.cover,
             ),
           ),
         ),
-      ],
+      ),
     );
+    // return Stack(
+      // children: [
+      //   Container(
+      //     decoration: const BoxDecoration(
+      //       gradient: LinearGradient(colors: [
+      //     Color.fromARGB(255, 0, 0, 0),
+      //     Color.fromARGB(255, 43, 40, 41),
+      //     Color.fromARGB(255, 105,102,103)
+      //       ])
+      //     ),
+      //   ),
+      //   Center(
+      //     child: Container(
+      //       decoration: const BoxDecoration(
+      //         image: DecorationImage(
+      //           image: AssetImage('images/learnaidlogo.jpeg'),
+      //           // fit: BoxFit.cover,
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // ],
   }
 }
 

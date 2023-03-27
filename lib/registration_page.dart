@@ -101,12 +101,14 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           child: Column(
                             children: [
                               Ink.image(
-                                image: const NetworkImage(
-                                    'https://danamojo.org/site/wp-content/uploads/2016/04/ngo-building.png'),
+                                // image: NetworkImage(
+                                //     'https://danamojo.org/site/wp-content/uploads/2016/04/ngo-building.png'),
                                 // height: 200,
                                 // width: 200,
+                                image:AssetImage(
+                                  'images/registrationpage.png'),
                                 height:
-                                    MediaQuery.of(context).size.height * 0.25,
+                                    MediaQuery.of(context).size.height * 0.45,
                                 width: MediaQuery.of(context).size.width * 0.50,
                                 fit: BoxFit.cover,
                               ),
@@ -150,8 +152,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                     'https://d22bbllmj4tvv8.cloudfront.net/d5/c0/efaeb96d41e3a674f8d2ed576bed/what-is-mentoring1-square.jpg'),
                                 // height: 200,
                                 // width: 200,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.25,
+                                height: MediaQuery.of(context).size.height * 0.25,
                                 width: MediaQuery.of(context).size.width * 0.50,
                                 fit: BoxFit.cover,
                               ),

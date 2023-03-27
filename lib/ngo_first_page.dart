@@ -23,7 +23,6 @@ class FirstPageState extends State<FirstPage> {
   int _selectedValue = 0;
   String ngoName = '';
   String ph = '';
-  //String _email = '';
   String add1 = '';
   String add2 = '';
 
@@ -46,7 +45,8 @@ class FirstPageState extends State<FirstPage> {
       child: Scaffold(
         backgroundColor: const Color(0xFFA1D2CE),
         appBar: AppBar(
-          backgroundColor: const Color(0xFF62A8AC),
+          // backgroundColor: const Color(0xFF62A8AC),
+          backgroundColor: Color(0xff4a4a4a),
           centerTitle: true,
           title: const Padding(
             padding: EdgeInsets.all(5.0),
@@ -68,25 +68,29 @@ class FirstPageState extends State<FirstPage> {
               fit: BoxFit.cover,
             ),
           ),
-          child: Column(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                  1, MediaQuery.of(context).size.height * 0.1, 1, 0),
+          child:Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                 margin: const EdgeInsets.all(5.0),
-                child: Image.network(
-                  "https://corpbiz.io/learning/wp-content/uploads/2019/11/NGO-Registration.jpg",
-                  width: 400,
-                  height: 100,
+                child: Image.asset(
+                  "images/ngopic.png",
+                  height: MediaQuery.of(context).size.height * 0.25,
+                  width: MediaQuery.of(context).size.width * 0.9,
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               //Starting from here
               Container(
-                width: 300,
-                height: 50,
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width * 0.75,
                 margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 decoration: BoxDecoration(
@@ -96,7 +100,9 @@ class FirstPageState extends State<FirstPage> {
                 child: TextField(
                   onChanged: (value) {
                     // store the value entered in the text field
-                    ngoName = value;
+                    setState(() {
+                      ngoName = value;
+                    });
                   },
                   //textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -105,16 +111,16 @@ class FirstPageState extends State<FirstPage> {
                       color: Colors.white.withOpacity(0.8),
                     ),
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(10),
+                    contentPadding: EdgeInsets.all(15),
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
               Container(
-                width: 300,
-                height: 50,
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width * 0.75,
                 margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 decoration: BoxDecoration(
@@ -124,7 +130,9 @@ class FirstPageState extends State<FirstPage> {
                 child: TextField(
                   onChanged: (value) {
                     // store the value entered in the text field
-                    ph = value;
+                    setState(() {
+                      ngoName = value;
+                    });
                   },
                   //textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -133,38 +141,16 @@ class FirstPageState extends State<FirstPage> {
                       color: Colors.white.withOpacity(0.8),
                     ),
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(10),
+                    contentPadding: EdgeInsets.all(15),
                   ),
                 ),
               ),
-              /*Container(
-                width: 300,
-                height: 50,
-                margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-                padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.3),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: TextField(
-                  onChanged: (value) {
-                    // store the value entered in the text field
-                    _email = value;
-                  },
-                  //textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    hintText: 'Email ID',
-                    hintStyle: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
-                    ),
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(10),
-                  ),
-                ),
-              ),*/
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
               Container(
-                width: 300,
-                height: 50,
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width * 0.75,
                 margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 decoration: BoxDecoration(
@@ -174,7 +160,9 @@ class FirstPageState extends State<FirstPage> {
                 child: TextField(
                   onChanged: (value) {
                     // store the value entered in the text field
-                    add1 = value;
+                    setState(() {
+                      add1 = value;
+                    });
                   },
                   //textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -183,17 +171,17 @@ class FirstPageState extends State<FirstPage> {
                       color: Colors.white.withOpacity(0.8),
                     ),
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(10),
+                    contentPadding: EdgeInsets.all(15),
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
 
               Container(
-                width: 300,
-                height: 50,
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width * 0.75,
                 margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 decoration: BoxDecoration(
@@ -203,7 +191,9 @@ class FirstPageState extends State<FirstPage> {
                 child: TextField(
                   onChanged: (value) {
                     // store the value entered in the text field
-                    add2 = value;
+                    setState(() {
+                      add2 = value;
+                    });
                   },
                   //textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -212,208 +202,31 @@ class FirstPageState extends State<FirstPage> {
                       color: Colors.white.withOpacity(0.8),
                     ),
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(10),
+                    contentPadding: EdgeInsets.all(15),
                   ),
                 ),
               ),
-
-              //       Container(
-              //         width: 300,
-              //         height: 50,
-              //         padding: EdgeInsets.all(2.0),
-              //         decoration: BoxDecoration(
-              //           borderRadius: BorderRadius.circular(15),
-              //           color: Colors.white.withOpacity(0.3),
-              //         ),
-              //         child: Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //           children: [
-              //             SizedBox(
-              //               width: 150,
-              //               child: TextField(
-              //                 decoration: InputDecoration(
-              //                   hintText: 'Name Of NGO',
-              //                   hintStyle: TextStyle(
-              //                     color: Colors.white.withOpacity(0.8),
-              //                   ),
-              //                   border: InputBorder.none,
-              //                   contentPadding: EdgeInsets.all(10),
-              //                 ),
-              //                 onChanged: (value) {
-              //                   setState(
-              //                     () {
-              //                       _cardNumber = value;
-              //                     },
-              //                   );
-              //                 },
-              //               ),
-              //             ),
-              //           ],
-              //         ),
-              //       ),
-              //       const SizedBox(
-              //         height: 5,
-              //       ),
-              //       Container(
-              //         width: 300,
-              //         height: 50,
-              //         padding: const EdgeInsets.all(2.0),
-              //         decoration: BoxDecoration(
-              //           borderRadius: BorderRadius.circular(15),
-              //           color: Colors.white.withOpacity(0.3),
-              //         ),
-              //         child: Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //           children: [
-              //             SizedBox(
-              //               width: 150,
-              //               child: TextField(
-              //                 decoration: InputDecoration(
-              //                   hintText: 'Phone Number',
-              //                   hintStyle: TextStyle(
-              //                     color: Colors.white.withOpacity(0.8),
-              //                   ),
-              //                   border: InputBorder.none,
-              //                   contentPadding: EdgeInsets.all(10),
-              //                 ),
-              //                 onChanged: (value) {
-              //                   setState(
-              //                     () {
-              //                       _cardNumber = value;
-              //                     },
-              //                   );
-              //                 },
-              //               ),
-              //             ),
-              //           ],
-              //         ),
-              //       ),
-              //       const SizedBox(
-              //         height: 5,
-              //       ),
-              //       Container(
-              //         width: 300,
-              //         height: 50,
-              //         padding: const EdgeInsets.all(2.0),
-              //         decoration: BoxDecoration(
-              //           borderRadius: BorderRadius.circular(15),
-              //           color: Colors.white.withOpacity(0.3),
-              //         ),
-              //         child: Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //           children: [
-              //             SizedBox(
-              //               width: 150,
-              //               child: TextField(
-              //                 decoration: InputDecoration(
-              //                   hintText: 'Email id',
-              //                   hintStyle: TextStyle(
-              //                     color: Colors.white.withOpacity(0.8),
-              //                   ),
-              //                   border: InputBorder.none,
-              //                   contentPadding: EdgeInsets.all(10),
-              //                 ),
-              //                 onChanged: (value) {
-              //                   setState(
-              //                     () {
-              //                       _cardNumber = value;
-              //                     },
-              //                   );
-              //                 },
-              //               ),
-              //             ),
-              //           ],
-              //         ),
-              //       ),
-              //       const SizedBox(
-              //         height: 5,
-              //       ),
-              //       Container(
-              //         width: 300,
-              //         height: 50,
-              //         padding: const EdgeInsets.all(2.0),
-              //         decoration: BoxDecoration(
-              //           borderRadius: BorderRadius.circular(15),
-              //           color: Colors.white.withOpacity(0.3),
-              //         ),
-              //         child: Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //           children: [
-              //             SizedBox(
-              //               width: 150,
-              //               child: TextField(
-              //                 decoration: InputDecoration(
-              //                   hintText: 'Office Address Line 1',
-              //                   hintStyle: TextStyle(
-              //                     color: Colors.white.withOpacity(0.8),
-              //                   ),
-              //                   border: InputBorder.none,
-              //                   contentPadding: EdgeInsets.all(10),
-              //                 ),
-              //                 onChanged: (value) {
-              //                   setState(
-              //                     () {
-              //                       _cardNumber = value;
-              //                     },
-              //                   );
-              //                 },
-              //               ),
-              //             ),
-              //           ],
-              //         ),
-              //       ),
-              //       const SizedBox(
-              //         height: 5,
-              //       ),
-              //       Container(
-              //         height: 50,
-              //         width: 300,
-              //         padding: const EdgeInsets.all(2.0),
-              //         decoration: BoxDecoration(
-              //           borderRadius: BorderRadius.circular(15),
-              //           color: Colors.white.withOpacity(0.3),
-              //         ),
-              //         child: Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //           children: [
-              //             SizedBox(
-              //               width: 150,
-              //               child: TextField(
-              //                 decoration: InputDecoration(
-              //                   floatingLabelAlignment: FloatingLabelAlignment.start,
-              //                   hintText: 'Office Address Line 2',
-              //                   hintStyle: TextStyle(
-              //                     color: Colors.white.withOpacity(0.8),
-              //                   ),
-              //                   border: InputBorder.none,
-              //                   contentPadding: EdgeInsets.all(10),
-              //                 ),
-              //                 onChanged: (value) {
-              //                   setState(
-              //                     () {
-              //                       _cardNumber = value;
-              //                     },
-              //                   );
-              //                 },
-              //               ),
-              //             ),
             ],
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          child: Container(
-            height: 15.0,
-            width: 15.0,
           ),
         ),
+        bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 10.0,
+          width: 10.0,
+        ),
+        ),
         floatingActionButton: FloatingActionButton(
+          tooltip: "Saved",
           child: const Text('Next'),
-          onPressed: () {
-            final user = WriteNgoData(
-              name: ngoName,
-              phone: ph,
-              add1: add1,
-              add2: add2,
+          onPressed: () {  
+
+           final user = WriteNgoData(
+              name : ngoName,
+              phone : ph,
+              add1 : add1,
+              add2 : add2,
               numcls1: '',
               numcls2: '',
               numcls3: '',
@@ -422,17 +235,19 @@ class FirstPageState extends State<FirstPage> {
               hrto: '',
               hrfrom: '',
               selectedClass: '',
-              email: widget.email,
             );
             w.createUserNgo(user);
-
+                   
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => NextNGOPage(ID: w.id)),
+              MaterialPageRoute(builder: (context) => NextNGOPage(ID : w.id)),
             );
           },
+          
         ),
       ),
     );
   }
 }
+
+ 

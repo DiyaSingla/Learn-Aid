@@ -26,7 +26,8 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
         child: Scaffold(
       backgroundColor: const Color(0xFFA1D2CE),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF62A8AC),
+        // backgroundColor: const Color(0xFF62A8AC),
+        backgroundColor: Color(0xff4a4a4a),
         centerTitle: true,
         title: const Padding(
           padding: EdgeInsets.all(5.0),
@@ -48,16 +49,18 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
+        child:SingleChildScrollView(
+          child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                  1, MediaQuery.of(context).size.height * 0.1, 1, 0),
+         child:Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               margin: const EdgeInsets.all(5.0),
-              child: Image.network(
-                "https://img.freepik.com/free-vector/teacher-standing-near-blackboard-holding-stick-isolated-flat-vector-illustration-cartoon-woman-character-near-chalkboard-pointing-alphabet_74855-8600.jpg",
-                // width: 360,
-                // height: 90,
-                height: MediaQuery.of(context).size.height * 0.15,
+              child: Image.asset(
+                'images/mentorfirstpage.png',
+                height: MediaQuery.of(context).size.height * 0.25,
                 width: MediaQuery.of(context).size.width * 0.9,
                 fit: BoxFit.cover,
               ),
@@ -98,7 +101,10 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               child: TextField(
                 onChanged: (value) {
                   // store the value entered in the text field
-                  name = value;
+                  setState(() {
+                    name = value;
+                  });
+                  // name = value;
                 },
                 //textAlign: TextAlign.center,
                 decoration: InputDecoration(
@@ -107,7 +113,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     color: Colors.white.withOpacity(0.8),
                   ),
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(10),
+                  contentPadding: const EdgeInsets.all(15),
                 ),
               ),
             ),
@@ -126,7 +132,10 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               child: TextField(
                 onChanged: (value) {
                   // store the value entered in the text field
-                  age = value;
+                  setState(() {
+                    age = value;
+                  });
+                  // age = value;
                 },
                 //textAlign: TextAlign.center,
                 decoration: InputDecoration(
@@ -135,7 +144,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     color: Colors.white.withOpacity(0.8),
                   ),
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(10),
+                  contentPadding: EdgeInsets.all(15),
                 ),
               ),
             ),
@@ -149,21 +158,21 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
               ),
               child: TextField(
                 onChanged: (value) {
-                  // store the value entered in the text field
-                  ph = value;
+                  setState(() {
+                    ph = value;
+                  });
                 },
-                //textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   hintText: 'Enter Your Phone Number',
                   hintStyle: TextStyle(
                     color: Colors.white.withOpacity(0.8),
                   ),
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(10),
+                  contentPadding: EdgeInsets.all(15),
                 ),
               ),
             ),
@@ -171,7 +180,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               height: MediaQuery.of(context).size.height * 0.002,
             ),
             Container(
-              padding: EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(5.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -243,7 +252,10 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               child: TextField(
                 onChanged: (value) {
                   // store the value entered in the text field
-                  org = value;
+                  setState(() {
+                    org = value;
+                  });
+                  // org = value;
                 },
                 textAlign: TextAlign.left,
                 decoration: InputDecoration(
@@ -252,46 +264,37 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     color: Colors.white.withOpacity(0.8),
                   ),
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(10),
+                  contentPadding: EdgeInsets.all(15),
                 ),
               ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.015,
             ),
-            Container(
-              alignment: Alignment.center,
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.06,
               width: MediaQuery.of(context).size.width * 0.75,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-              ),
               child: ElevatedButton(
                 onPressed: () {
                   launch('https://www.youtube.com/');
                 },
-                child: const Text('Verify Your Aadhar Details Here'),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
+                  child: Text('Verify Your Aadhar Details Here'),
+                ),
               ),
-            )
-            // Container(
-            //   margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-            //   padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(15),
-            //     color: Color.fromARGB(255, 231, 225, 227),
-            //   ),
-            //   child: TextField(
-            //     onChanged: (value) {
-            //       // store the value entered in the text field
-            //       _proof = value;
-            //     },
-            //     textAlign: TextAlign.center,
-            //     decoration: const InputDecoration(
-            //       hintText: 'Provide Google Drive Link',
-            //     ),
-            //   ),
-            // ),
+            ),
           ],
+        ),
+      ),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
@@ -300,14 +303,15 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
           width: 10.0,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: ph.isNotEmpty && name.isNotEmpty && age.isNotEmpty && org.isNotEmpty
+              ? FloatingActionButton(
         onPressed: () {
           final user = WriteMentorData(
-            name: name,
-            age: age,
-            ph: ph,
+            name : name,
+            age : age,
+            ph : ph,
             collegeStudent: selectedValue,
-            org: org,
+            org : org,
             selectedClass: '',
             selectedSubject: '',
             selectedTopic: '',
@@ -318,12 +322,12 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => NextMentorPage(Id: m.id),
+              builder: (context) => NextMentorPage(Id : m.id),
             ),
           );
         },
         child: const Text('Next'),
-      ),
+      ): null,
     ));
   }
 }

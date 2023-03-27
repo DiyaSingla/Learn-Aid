@@ -32,30 +32,32 @@ class _SignInState extends State<SignIn> {
           child: Column(
             children: <Widget>[
               logoWidget("images/learnaidlogo.jpeg"),
-              const SizedBox(
-                height: 20,
-              ),
+              // Container(
+              //   constraints: const BoxConstraints.expand(),
+              //   decoration: const BoxDecoration(
+              //     image: DecorationImage(
+              //       image: AssetImage('images/learnaidlogo.jpeg'),
+              //       fit: BoxFit.cover,
+              //     ),
+              //   ),
+              // ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               reusableTextField("Enter Username", Icons.person_outline, false,
                   _emailTextController),
-              const SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               reusableTextField("Enter Password", Icons.lock_outline, true,
                   _passwordTextController),
-              const SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               signInSignUpButton(context, true, () {
                 FirebaseAuth.instance
                     .signInWithEmailAndPassword(
                         email: _emailTextController.text,
                         password: _passwordTextController.text)
                     .then((value) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => RegistrationPage(
-                              email: _emailTextController.text)));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => RegistrationPage(
+                        email: _emailTextController.text
+                      )));
                 }).onError((error, stackTrace) {
                   print("Error ${error.toString()}");
                 });

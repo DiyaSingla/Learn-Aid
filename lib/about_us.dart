@@ -26,7 +26,7 @@ class _AboutUsState extends State<AboutUs> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               const Text(
                 'Here is how you can contact us',
                 style: TextStyle(
@@ -34,7 +34,7 @@ class _AboutUsState extends State<AboutUs> {
                   fontWeight: FontWeight.normal,
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -46,7 +46,7 @@ class _AboutUsState extends State<AboutUs> {
                 ),
                 child: Column(
                   children: [
-                    const SizedBox(height: 10),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     InkWell(
                       child: Row(
                         children: const [
@@ -60,12 +60,12 @@ class _AboutUsState extends State<AboutUs> {
                       ),
                       onTap: () => launch('tel:+1234567890'),
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     InkWell(
                       child: Row(
                         children: const [
                           Icon(Icons.email),
-                          SizedBox(width: 10),
+                          SizedBox(height: 10),
                           Text(
                             'info@example.com',
                             style: TextStyle(fontSize: 18),
@@ -78,7 +78,7 @@ class _AboutUsState extends State<AboutUs> {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               const Text(
                 'About Us',
                 style: TextStyle(
@@ -86,26 +86,36 @@ class _AboutUsState extends State<AboutUs> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               const Text(
                 'We did this for GSC.',
                 style: TextStyle(fontSize: 18),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
+                scrollDirection: Axis.vertical,
+                child: Column(
                   children: [
                     Container(
-                      width: 200,
+                      width: MediaQuery.of(context).size.width * 0.4,
                       margin: EdgeInsets.all(10),
                       child: Column(
                         children: [
-                          Image.network(
-                              'https://via.placeholder.com/200x200.png?text=Image+1'),
-                          SizedBox(height: 10),
-                          Text('Image 1'),
+                          Image.asset('images/anushka.jpeg'),
+                          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                          Text('Anushka Singh, CSE-AI (IGDTUW)'),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      margin: EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          Image.asset('images/arushi.jpeg'),
+                          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                          Text('Arushi Sinha, ECE-AI (IGDTUW)'),
                         ],
                       ),
                     ),
@@ -114,34 +124,20 @@ class _AboutUsState extends State<AboutUs> {
                       margin: EdgeInsets.all(10),
                       child: Column(
                         children: [
-                          Image.network(
-                              'https://via.placeholder.com/200x200.png?text=Image+2'),
-                          SizedBox(height: 10),
-                          Text('Image 2'),
+                          Image.asset('images/diya.jpeg'),
+                          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                          Text('Diya Singla, CSE-AI (IGDTUW)'),
                         ],
                       ),
                     ),
                     Container(
-                      width: 200,
+                      width: MediaQuery.of(context).size.width * 0.4,
                       margin: EdgeInsets.all(10),
                       child: Column(
                         children: [
-                          Image.network(
-                              'https://via.placeholder.com/200x200.png?text=Image+3'),
-                          const SizedBox(height: 10),
-                          const Text('Image 3'),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: 200,
-                      margin: EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          Image.network(
-                              'https://via.placeholder.com/200x200.png?text=Image+4'),
-                          const SizedBox(height: 10),
-                          const Text('Image 4'),
+                          Image.asset('images/nidhi.jpeg'),
+                          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                          Text('Nidhi Bhatt, CSE (IGDTUW)'),
                         ],
                       ),
                     ),

@@ -67,7 +67,8 @@ class NextNGOPageState extends State<NextNGOPage> {
       child: Scaffold(
           backgroundColor: const Color(0xFFA1D2CE),
           appBar: AppBar(
-            backgroundColor: const Color(0xFF62A8AC),
+            // backgroundColor: const Color(0xFF62A8AC),
+            backgroundColor: Color(0xff4a4a4a),
             centerTitle: true,
             title: const Padding(
               padding: EdgeInsets.all(5.0),
@@ -89,24 +90,28 @@ class NextNGOPageState extends State<NextNGOPage> {
                 fit: BoxFit.cover,
               ),
             ),
-            child: Column(
+            child: SingleChildScrollView(
+              child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                  1, MediaQuery.of(context).size.height * 0.1, 1, 0),
+                  child:Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                   margin: const EdgeInsets.all(5.0),
-                  child: Image.network(
-                    "https://corpbiz.io/learning/wp-content/uploads/2019/11/NGO-Registration.jpg",
-                    width: 400,
-                    height: 100,
+                  child: Image.asset(
+                    "images/ngopic.png",
+                    height: MediaQuery.of(context).size.height * 0.25,
+                    width: MediaQuery.of(context).size.width * 0.9,
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
                 ),
                 Container(
-                  width: 400,
-                  height: 50,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
                   padding: EdgeInsets.all(2.0),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
@@ -123,7 +128,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                               hintText: 'Class 1',
                               hintStyle: TextStyle(),
                               border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(10)),
+                              contentPadding: EdgeInsets.all(15)),
                           onChanged: (value) {
                             setState(
                               () {
@@ -137,11 +142,11 @@ class NextNGOPageState extends State<NextNGOPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 3,
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Container(
-                  width: 400,
-                  height: 50,
+                 height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
                   padding: EdgeInsets.all(2.0),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
@@ -159,7 +164,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                               hintText: 'Class 2',
                               hintStyle: TextStyle(),
                               border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(10)),
+                              contentPadding: EdgeInsets.all(15)),
                           onChanged: (value) {
                             setState(
                               () {
@@ -173,11 +178,11 @@ class NextNGOPageState extends State<NextNGOPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 3,
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Container(
-                  width: 400,
-                  height: 50,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
                   padding: EdgeInsets.all(2.0),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
@@ -195,7 +200,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                               hintText: 'Class 3',
                               hintStyle: TextStyle(),
                               border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(10)),
+                              contentPadding: EdgeInsets.all(15)),
                           onChanged: (value) {
                             setState(
                               () {
@@ -209,11 +214,11 @@ class NextNGOPageState extends State<NextNGOPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 3,
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Container(
-                  width: 400,
-                  height: 50,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
                   padding: EdgeInsets.all(2.0),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
@@ -231,7 +236,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                               hintText: 'Class 4',
                               hintStyle: TextStyle(),
                               border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(10)),
+                              contentPadding: EdgeInsets.all(15)),
                           onChanged: (value) {
                             setState(
                               () {
@@ -245,11 +250,11 @@ class NextNGOPageState extends State<NextNGOPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 3,
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Container(
-                  width: 400,
-                  height: 50,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
                   padding: EdgeInsets.all(2.0),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
@@ -267,7 +272,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                               hintText: 'Class 5',
                               hintStyle: TextStyle(),
                               border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(10)),
+                              contentPadding: EdgeInsets.all(15)),
                           onChanged: (value) {
                             setState(
                               () {
@@ -281,11 +286,11 @@ class NextNGOPageState extends State<NextNGOPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: MediaQuery.of(context).size.height * 0.04,
                 ),
                 Container(
-                  width: 400,
-                  height: 50,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
                   margin:
                       const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                   padding:
@@ -324,12 +329,12 @@ class NextNGOPageState extends State<NextNGOPage> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.04,
                 ),
                 Container(
-                  width: 400,
-                  height: 50,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
                   padding: EdgeInsets.all(2.0),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
@@ -346,7 +351,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                               hintText: 'From',
                               hintStyle: TextStyle(),
                               border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(10)),
+                              contentPadding: EdgeInsets.all(15)),
                           onChanged: (value) {
                             setState(
                               () {
@@ -359,12 +364,12 @@ class NextNGOPageState extends State<NextNGOPage> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 3,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Container(
-                  width: 400,
-                  height: 50,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
                   padding: EdgeInsets.all(2.0),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
@@ -381,7 +386,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                               hintText: 'To',
                               hintStyle: TextStyle(),
                               border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(10)),
+                              contentPadding: EdgeInsets.all(15)),
                           onChanged: (value) {
                             setState(
                               () {
@@ -394,8 +399,8 @@ class NextNGOPageState extends State<NextNGOPage> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.04,
                 ),
                 CheckboxListTile(
                   title: const Text(
@@ -418,6 +423,8 @@ class NextNGOPageState extends State<NextNGOPage> {
                 ),
               ],
             ),
+              ),
+          ),
           ),
           bottomNavigationBar: BottomAppBar(
             child: Container(
@@ -450,7 +457,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                   child: const Text('Submit'),
                 )
               : SizedBox()),
-    );
+      );
   }
 }
 
