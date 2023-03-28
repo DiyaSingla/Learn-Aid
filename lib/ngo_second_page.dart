@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_aid/activity_page.dart';
+import 'ngo_dashboard.dart';
 import 'registration_page.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -451,7 +452,7 @@ class NextNGOPageState extends State<NextNGOPage> {
 
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ActivityPage()),
+                      MaterialPageRoute(builder: (context) => FirebaseSearchScreen()),
                     );
                   },
                   child: const Text('Submit'),

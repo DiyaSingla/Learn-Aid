@@ -6,6 +6,7 @@ import 'ngo_first_page.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key, required this.email});
+  
   final String email;
 
   @override

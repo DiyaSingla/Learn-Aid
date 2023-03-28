@@ -118,7 +118,7 @@ class _AboutUsState extends State<AboutUs> {
                       child: Column(
                         children: [
                           Image.asset('images/arushi.jpeg'),
-                          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                          SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                           Text('Arushi Sinha, ECE-AI (IGDTUW)'),
                         ],
                       ),
