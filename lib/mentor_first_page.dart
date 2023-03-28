@@ -90,7 +90,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               height: MediaQuery.of(context).size.height * 0.005,
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.08,
+              height: MediaQuery.of(context).size.height * 0.09,
               width: MediaQuery.of(context).size.width * 0.75,
               margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -121,7 +121,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               height: MediaQuery.of(context).size.height * 0.002,
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.08,
+              height: MediaQuery.of(context).size.height * 0.09,
               width: MediaQuery.of(context).size.width * 0.75,
               margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -152,7 +152,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               height: MediaQuery.of(context).size.height * 0.002,
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.08,
+              height: MediaQuery.of(context).size.height * 0.09,
               width: MediaQuery.of(context).size.width * 0.75,
               margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -241,7 +241,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.08,
+              height: MediaQuery.of(context).size.height * 0.09,
               width: MediaQuery.of(context).size.width * 0.75,
               margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
               padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -286,7 +286,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                 ),
                 child: Container(
                   alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.08,
+                  height: MediaQuery.of(context).size.height * 0.09,
                   width: MediaQuery.of(context).size.width * 0.75,
                   child: Text('Verify Your Aadhar Details Here'),
                 ),

@@ -88,7 +88,7 @@ class FirstPageState extends State<FirstPage> {
               ),
               //Starting from here
               Container(
-                height: MediaQuery.of(context).size.height * 0.08,
+                height: MediaQuery.of(context).size.height * 0.09,
                 width: MediaQuery.of(context).size.width * 0.75,
                 margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -118,7 +118,7 @@ class FirstPageState extends State<FirstPage> {
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.08,
+                height: MediaQuery.of(context).size.height * 0.09,
                 width: MediaQuery.of(context).size.width * 0.75,
                 margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -148,7 +148,7 @@ class FirstPageState extends State<FirstPage> {
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.08,
+                height: MediaQuery.of(context).size.height * 0.09,
                 width: MediaQuery.of(context).size.width * 0.75,
                 margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -179,7 +179,7 @@ class FirstPageState extends State<FirstPage> {
               ),
 
               Container(
-                height: MediaQuery.of(context).size.height * 0.08,
+                height: MediaQuery.of(context).size.height * 0.09,
                 width: MediaQuery.of(context).size.width * 0.75,
                 margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                 padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
