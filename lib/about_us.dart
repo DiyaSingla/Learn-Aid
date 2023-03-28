@@ -88,7 +88,11 @@ class _AboutUsState extends State<AboutUs> {
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               const Text(
-                'We did this for GSC.',
+                'We are excited to share with you our project, Learn Aid, which we have developed as a part of the Google Solution Challenge 2023. As four second-year B.Tech undergraduates from IGDTUW, we have utilized our skills in Flutter, Dart, and Firebase to create an app that connects mentors to NGOs, making teaching children easier.'
+
+                'Our main aim is to promote sustainable development goals focused on education and reducing inequality. With Learn Aid, we hope to create a platform that bridges the gap between mentors and underprivileged children, providing them with quality education and equal opportunities.'
+
+                'We believe that our project has the potential to make a significant impact, and we are committed to contributing towards a better future. Thank you for considering our project, and we look forward to hearing from you.',
                 style: TextStyle(fontSize: 18),
                 textAlign: TextAlign.center,
               ),
@@ -98,7 +102,7 @@ class _AboutUsState extends State<AboutUs> {
                 child: Column(
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.4,
+                      width: MediaQuery.of(context).size.width * 0.3,
                       margin: EdgeInsets.all(10),
                       child: Column(
                         children: [
@@ -109,7 +113,7 @@ class _AboutUsState extends State<AboutUs> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.4,
+                      width: MediaQuery.of(context).size.width * 0.3,
                       margin: EdgeInsets.all(10),
                       child: Column(
                         children: [
@@ -120,7 +124,7 @@ class _AboutUsState extends State<AboutUs> {
                       ),
                     ),
                     Container(
-                      width: 200,
+                      width: MediaQuery.of(context).size.width * 0.3,
                       margin: EdgeInsets.all(10),
                       child: Column(
                         children: [
@@ -131,7 +135,7 @@ class _AboutUsState extends State<AboutUs> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.4,
+                      width: MediaQuery.of(context).size.width * 0.3,
                       margin: EdgeInsets.all(10),
                       child: Column(
                         children: [

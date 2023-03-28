@@ -66,54 +66,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
-
-                  // Container(
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //     children: [
-                  //       Text(
-                  //         'Select Class:',
-                  //         style: TextStyle(
-                  //           color: Colors.white,
-                  //           fontWeight: FontWeight.bold,
-                  //           fontSize: 18.0,
-                  //         ),
-                  //       ),
-                  //       Column(
-                  //         children: [
-                  //           DropdownButton<String>(
-                  //   value: selectedClass,
-                  //   items: _section
-                  //       .map(
-                  //         (sec) => DropdownMenuItem<String>(
-                  //           child: Text(sec),
-                  //           value: sec,
-                  //         ),
-                  //       )
-                  //       .toList(),
-                  //   hint: const Text(
-                  //     'Select a class',
-                  //     style: TextStyle(color: Colors.white),
-                  //   ),
-                  //   onChanged: (newValue) {
-                  //     setState(() {
-                  //       selectedClass = newValue;
-                  //     });
-                  //   },
-                  // ),
-                  // SizedBox(height:10),
-                  // Image.asset('images/learnaidlogo.jpeg',
-                  // height: 100,
-                  // width: 50,
-                  // ),
-                  //         ],
-                  //       )
-                  //     ],
-                  //   ),
-                  // ),
-
-                  Text(
+                  const Text(
                     'Select Class:',
                     style: TextStyle(
                       color: Colors.white,
@@ -143,7 +96,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                     },
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                  Text(
+                  const Text(
                     'Subjects:',
                     style: TextStyle(
                       color: Colors.white,
