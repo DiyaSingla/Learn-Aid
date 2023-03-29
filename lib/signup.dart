@@ -17,7 +17,7 @@ class SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 gradient: LinearGradient(colors: [
               Color.fromARGB(255, 0, 0, 0),
               Color.fromARGB(255, 43, 40, 41),

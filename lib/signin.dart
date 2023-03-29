@@ -34,15 +34,6 @@ class _SignInState extends State<SignIn> {
           child: Column(
             children: <Widget>[
               logoWidget("images/learnaidlogo.jpeg"),
-              // Container(
-              //   constraints: const BoxConstraints.expand(),
-              //   decoration: const BoxDecoration(
-              //     image: DecorationImage(
-              //       image: AssetImage('images/learnaidlogo.jpeg'),
-              //       fit: BoxFit.cover,
-              //     ),
-              //   ),
-              // ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               reusableTextField("Enter Username", Icons.person_outline, false,
                   _emailTextController),
@@ -59,7 +50,8 @@ class _SignInState extends State<SignIn> {
                   checkCategory(_emailTextController.text);
                 }).onError((error, stackTrace) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Error ${error.toString()}")),
+                    SnackBar(
+                        content: Text("${error.toString().split(']')[1]}")),
                   );
                   print("Error ${error.toString()}");
                 });

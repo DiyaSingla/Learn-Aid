@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_aid/reusable_widget.dart';
+import 'package:learn_aid/signin.dart';
 
 import 'ngo_info.dart';
 
@@ -13,6 +15,16 @@ class NGOSearchScreen extends StatefulWidget {
 
 class NGOSearchScreenState extends State<NGOSearchScreen> {
   List searchResult = [];
+
+  // Future<List> readNgoUsers() async {
+  //   final result =
+  //       await FirebaseFirestore.instance.collection('NgoUsers').get();
+  //   List searchResult = [];
+  //   setState(() {
+  //     searchResult = result.docs.map((e) => e.data()).toList();
+  //   });
+  //   return searchResult;
+  // }
 
   void searchFromFirebase(String query) async {
     final result = await FirebaseFirestore.instance
@@ -29,17 +41,40 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("List of NGOs"),
+        title: const Text("Your Dashboard"),
+        backgroundColor: Colors.blueGrey,
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              onPressed: () {
+                FirebaseAuth.instance.signOut().then((value) {
+                  print("Signed Out");
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => SignIn()));
+                });
+              },
+              icon: Icon(Icons.logout))
+        ],
       ),
       body: Column(
         children: [
+          const Text('\n'),
+          const Text(
+            "LIST OF NGOs",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                fontFamily: "Alakalami"),
+          ),
+          const Text('\n\n'),
           SizedBox(height: MediaQuery.of(context).size.height * 0.02),
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "Search Here",
+                hintText: "Search NGO by Zone",
               ),
               onChanged: (query) {
                 searchFromFirebase(query);
@@ -63,7 +98,7 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(10),
-                          gradient: LinearGradient(colors: [
+                          gradient: const LinearGradient(colors: [
                             Color.fromARGB(255, 95, 94, 94),
                             Colors.grey
                           ])),
@@ -73,17 +108,6 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
                           searchResult[index]['add1'],
                           searchResult[index]['add2']),
                     ));
-                // return ListTile(
-                //   title: Text(searchResult[index]['name']),
-                //   subtitle: Text(searchResult[index]['add1']),
-                //   trailing: Text(searchResult[index]['ph']),
-                //   onTap: () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //           builder: (context) => NGOInformation(
-                //               searchRecord: searchResult, index: index)),
-                //     );
               },
             ),
           ),

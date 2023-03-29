@@ -82,12 +82,12 @@ SizedBox searchMentor(String name, String ph, String sub, String cls) {
                       Padding(padding: EdgeInsets.only(top: 15)),
                       Text(
                         'Name : ' + name,
-                        textAlign: TextAlign.left,
+                        textAlign: TextAlign.center,
                       ),
                       Padding(padding: EdgeInsets.only(top: 15)),
                       Text(
                         'Phone : ' + ph,
-                        textAlign: TextAlign.left,
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),

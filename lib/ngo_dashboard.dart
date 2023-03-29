@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:learn_aid/about_us.dart';
 import 'package:learn_aid/reusable_widget.dart';
+import 'package:learn_aid/signin.dart';
 
 import 'mentor_info.dart';
-
 
 class MentorSearchScreen extends StatefulWidget {
   MentorSearchScreen({Key? key}) : super(key: key);
@@ -13,6 +15,7 @@ class MentorSearchScreen extends StatefulWidget {
 }
 
 class MentorSearchScreenState extends State<MentorSearchScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List searchResult = [];
 
   String? selectedClass = 'Class 1';
@@ -41,16 +44,83 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("List of Mentors"),
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            // Get a reference to the current Scaffold widget
+            _scaffoldKey.currentState?.openDrawer();
+          },
+        ),
+        title: const Text("Your Dashboard"),
+        backgroundColor: Colors.blueGrey,
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              onPressed: () {
+                FirebaseAuth.instance.signOut().then((value) {
+                  print("Signed Out");
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => SignIn()));
+                });
+              },
+              icon: Icon(Icons.logout))
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              leading: Icon(Icons.person_2_sharp),
+              title: Text('View profile'),
+              onTap: () {
+                //Navigator.pop(context);
+                // Navigate to home screen
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.info_outline_sharp),
+              title: Text('About Us'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AboutUs()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Log Out'),
+              onTap: () {
+                FirebaseAuth.instance.signOut().then((value) {
+                  print("Signed Out");
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => SignIn()));
+                });
+              },
+            ),
+          ],
+        ),
       ),
       body: Column(
         children: [
-          Text(
+          const Text('\n'),
+          const Text(
+            "LIST OF MENTORS",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                fontFamily: "Alkalami"),
+          ),
+          const Text('\n\n'),
+          const Text(
             'Select Class:',
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: 18.0,
+              fontSize: 15.0,
             ),
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.02),
@@ -77,7 +147,7 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: "Search Here",
               ),
@@ -103,7 +173,7 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(10),
-                          gradient: LinearGradient(colors: [
+                          gradient: const LinearGradient(colors: [
                             Color.fromARGB(255, 95, 94, 94),
                             Colors.grey
                           ])),
