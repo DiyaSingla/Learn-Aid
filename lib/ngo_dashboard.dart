@@ -46,10 +46,7 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.menu),
-          onPressed: () {
-            // Get a reference to the current Scaffold widget
-            _scaffoldKey.currentState?.openDrawer();
-          },
+          onPressed: () {},
         ),
         title: const Text("Your Dashboard"),
         backgroundColor: Colors.blueGrey,
