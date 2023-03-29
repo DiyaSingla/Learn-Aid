@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:learn_aid/write_ngodata.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'mentor_second_page.dart';
-import 'signin.dart';
 
 class MentorFirstPage extends StatefulWidget {
   const MentorFirstPage({super.key, required this.email});
@@ -49,286 +48,297 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
             fit: BoxFit.cover,
           ),
         ),
-        child:SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Padding(
-              padding: EdgeInsets.fromLTRB(
-                  1, MediaQuery.of(context).size.height * 0.1, 1, 0),
-         child:Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              margin: const EdgeInsets.all(5.0),
-              child: Image.asset(
-                'images/mentorfirstpage.png',
-                height: MediaQuery.of(context).size.height * 0.25,
-                width: MediaQuery.of(context).size.width * 0.9,
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.001,
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 0),
-              padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Text(
-                    "Personal Information",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontFamily: "Alkalami",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+            padding: EdgeInsets.fromLTRB(
+                1, MediaQuery.of(context).size.height * 0.1, 1, 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(5.0),
+                  child: Image.asset(
+                    'images/mentorfirstpage.png',
+                    height: MediaQuery.of(context).size.height * 0.25,
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    fit: BoxFit.cover,
                   ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.005,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.09,
-              width: MediaQuery.of(context).size.width * 0.75,
-              margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-              padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white.withOpacity(0.3),
-              ),
-              child: TextField(
-                onChanged: (value) {
-                  // store the value entered in the text field
-                  setState(() {
-                    name = value;
-                  });
-                  // name = value;
-                },
-                //textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                  labelText: 'Enter Your Name',
-                  labelStyle: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
-                  ),
-                  border: InputBorder.none,
-                  contentPadding: const EdgeInsets.all(8),
                 ),
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.002,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.09,
-              width: MediaQuery.of(context).size.width * 0.75,
-              margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-              padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: TextField(
-                onChanged: (value) {
-                  // store the value entered in the text field
-                  setState(() {
-                    age = value;
-                  });
-                  // age = value;
-                },
-                //textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                  labelText: 'Enter Your Age',
-                  labelStyle: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
-                  ),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(8),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.001,
                 ),
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.002,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.09,
-              width: MediaQuery.of(context).size.width * 0.75,
-              margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-              padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: TextField(
-                onChanged: (value) {
-                  setState(() {
-                    ph = value;
-                  });
-                },
-                decoration: InputDecoration(
-                  labelText: 'Enter Your Phone Number',
-                  labelStyle: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
-                  ),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(8),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.002,
-            ),
-            Container(
-              padding: const EdgeInsets.all(5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  const Text(
-                    "Are you a college student?",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "Alkalami",
-                      fontSize: 15,
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Radio(
-                        value: 0,
-                        groupValue: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = 0;
-                          });
-                        },
-                      ),
-                      const Text(
-                        "Yes",
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 3, horizontal: 0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 3, horizontal: 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const [
+                      Text(
+                        "Personal Information",
                         style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 255, 255, 255),
                           fontFamily: "Alkalami",
-                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
                       ),
                     ],
                   ),
-                  Row(
-                    children: <Widget>[
-                      Radio(
-                        value: 1,
-                        groupValue: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = 1;
-                          });
-                        },
-                      ),
-                      const Text(
-                        "No",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Alkalami",
-                          fontSize: 15,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.09,
-              width: MediaQuery.of(context).size.width * 0.75,
-              margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-              padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: TextField(
-                onChanged: (value) {
-                  // store the value entered in the text field
-                  setState(() {
-                    org = value;
-                  });
-                  // org = value;
-                },
-                textAlign: TextAlign.left,
-                decoration: InputDecoration(
-                  labelText: 'Enter Your Organisation',
-                  labelStyle: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
-                  ),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(8),
                 ),
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.015,
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.06,
-              width: MediaQuery.of(context).size.width * 0.75,
-              child: ElevatedButton(
-                onPressed: () {
-                  launch('https://www.youtube.com/');
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  shape: RoundedRectangleBorder(
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.005,
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white.withOpacity(0.3),
+                  ),
+                  child: TextField(
+                    onChanged: (value) {
+                      // store the value entered in the text field
+                      setState(() {
+                        name = value;
+                      });
+                      // name = value;
+                    },
+                    //textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                      hintText: 'Enter Your Name',
+                      hintStyle: TextStyle(
+                        color: Colors.white.withOpacity(0.8),
+                      ),
+                      border: InputBorder.none,
+                      contentPadding: const EdgeInsets.all(15),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.002,
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(10),
                   ),
+                  child: TextField(
+                    onChanged: (value) {
+                      // store the value entered in the text field
+                      setState(() {
+                        age = value;
+                      });
+                      // age = value;
+                    },
+                    //textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                      hintText: 'Enter Your Age',
+                      hintStyle: TextStyle(
+                        color: Colors.white.withOpacity(0.8),
+                      ),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(15),
+                    ),
+                  ),
                 ),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.09,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.002,
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.06,
                   width: MediaQuery.of(context).size.width * 0.75,
-                  child: Text('Verify Your Aadhar Details Here'),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        ph = value;
+                      });
+                    },
+                    decoration: InputDecoration(
+                      hintText: 'Enter Your Phone Number',
+                      hintStyle: TextStyle(
+                        color: Colors.white.withOpacity(0.8),
+                      ),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(15),
+                    ),
+                  ),
                 ),
-              ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.002,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      const Text(
+                        "Are you a college student?",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Alkalami",
+                          fontSize: 15,
+                        ),
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Radio(
+                            value: 0,
+                            groupValue: selectedValue,
+                            onChanged: (value) {
+                              setState(() {
+                                selectedValue = 0;
+                              });
+                            },
+                          ),
+                          const Text(
+                            "Yes",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Alkalami",
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Radio(
+                            value: 1,
+                            groupValue: selectedValue,
+                            onChanged: (value) {
+                              setState(() {
+                                selectedValue = 1;
+                              });
+                            },
+                          ),
+                          const Text(
+                            "No",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Alkalami",
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextField(
+                    onChanged: (value) {
+                      // store the value entered in the text field
+                      setState(() {
+                        org = value;
+                      });
+                      // org = value;
+                    },
+                    textAlign: TextAlign.left,
+                    decoration: InputDecoration(
+                      hintText: 'Enter Your Organisation',
+                      hintStyle: TextStyle(
+                        color: Colors.white.withOpacity(0.8),
+                      ),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(15),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.015,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.75,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      launch('https://www.youtube.com/');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      child: Text('Verify Your Aadhar Details Here'),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
           height: MediaQuery.of(context).size.height * 0.02,
-width: MediaQuery.of(context).size.width * 0.02,
-
+          width: MediaQuery.of(context).size.width * 0.02,
         ),
       ),
-      floatingActionButton: ph.isNotEmpty && name.isNotEmpty && age.isNotEmpty && org.isNotEmpty
+      floatingActionButton:
+          ph.isNotEmpty && name.isNotEmpty && age.isNotEmpty && org.isNotEmpty
               ? FloatingActionButton(
-        onPressed: () {
-          final user = WriteMentorData(
-            name : name,
-            age : age,
-            ph : ph,
-            collegeStudent: selectedValue,
-            org : org,
-            selectedClass: '',
-            selectedSubject: '',
-            selectedTopic: '',
-            email: widget.email,
-          );
-          m.createUserMentor(user);
+                  onPressed: () {
+                    final user = WriteMentorData(
+                      name: name,
+                      age: age,
+                      ph: ph,
+                      collegeStudent: selectedValue,
+                      org: org,
+                      selectedClass: '',
+                      selectedSubject: '',
+                      selectedTopic: '',
+                      email: widget.email,
+                    );
+                    m.createUserMentor(user);
 
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => NextMentorPage(Id : m.id),
-            ),
-          );
-        },
-        child: const Text('Next'),
-      ): null,
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NextMentorPage(Id: m.id),
+                      ),
+                    );
+                  },
+                  child: const Text('Next'),
+                )
+              : null,
     ));
   }
 }

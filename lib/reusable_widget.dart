@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-
 Image logoWidget(String imageName) {
   return Image.asset(
     imageName,
     fit: BoxFit.fitWidth,
     width: 240,
     height: 240,
-    color: Colors.white,
+    //color: Colors.white,
   );
 }
 
@@ -63,4 +62,108 @@ Container signInSignUpButton(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),
     ),
   );
+}
+
+SizedBox searchMentor(String name, String ph, String sub, String cls) {
+  return SizedBox(
+      width: double.infinity,
+      height: 65,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(padding: EdgeInsets.only(top: 15)),
+                      Text(
+                        'Name : ' + name,
+                        textAlign: TextAlign.left,
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 15)),
+                      Text(
+                        'Phone : ' + ph,
+                        textAlign: TextAlign.left,
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(padding: EdgeInsets.only(top: 15)),
+                      Text(
+                        'Class : ' + cls,
+                        textAlign: TextAlign.right,
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 15)),
+                      Text(
+                        'Subject : ' + sub,
+                        textAlign: TextAlign.right,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ));
+}
+
+SizedBox searchNGO(String name, String ph, String add1, String add2) {
+  return SizedBox(
+      width: double.infinity,
+      height: 65,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(padding: EdgeInsets.only(top: 15)),
+                      Text(
+                        'Name : ' + name,
+                        textAlign: TextAlign.left,
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 15)),
+                      Text(
+                        'Phone : ' + ph,
+                        textAlign: TextAlign.left,
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(padding: EdgeInsets.only(top: 15)),
+                      Text(
+                        'Address : ' + add1,
+                        textAlign: TextAlign.right,
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 15)),
+                      Text(
+                        add2,
+                        textAlign: TextAlign.right,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ));
 }

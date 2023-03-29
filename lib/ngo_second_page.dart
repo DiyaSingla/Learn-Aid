@@ -93,339 +93,396 @@ class NextNGOPageState extends State<NextNGOPage> {
             ),
             child: SingleChildScrollView(
               child: Padding(
-              padding: EdgeInsets.fromLTRB(
-                  1, MediaQuery.of(context).size.height * 0.1, 1, 0),
-                  child:Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  margin: const EdgeInsets.all(5.0),
-                  child: Image.asset(
-                    "images/ngopic.png",
-                    height: MediaQuery.of(context).size.height * 0.25,
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.03,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  padding: EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Text("Number Of Students Available"),
-                      SizedBox(
-                        width: 150,
-                        child: TextField(
-                          decoration: const InputDecoration(
-                              hintText: 'Class 1',
-                              hintStyle: TextStyle(),
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(15)),
-                          onChanged: (value) {
-                            setState(
-                              () {
-                                ncls1 = value;
+                padding: EdgeInsets.fromLTRB(
+                    1, MediaQuery.of(context).size.height * 0.1, 1, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(5.0),
+                      child: Image.asset(
+                        "images/ngopic.png",
+                        height: MediaQuery.of(context).size.height * 0.25,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      padding: EdgeInsets.all(2.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Text("Number Of Students Available"),
+                          SizedBox(
+                            width: 150,
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  hintText: 'Class 1',
+                                  hintStyle: TextStyle(),
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(15)),
+                              onChanged: (value) {
+                                setState(
+                                  () {
+                                    ncls1 = value;
+                                  },
+                                );
                               },
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                 height: MediaQuery.of(context).size.height * 0.06,
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  padding: EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Text(
-                          "                                                     "),
-                      SizedBox(
-                        width: 150,
-                        child: TextField(
-                          decoration: const InputDecoration(
-                              hintText: 'Class 2',
-                              hintStyle: TextStyle(),
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(15)),
-                          onChanged: (value) {
-                            setState(
-                              () {
-                                ncls2 = value;
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Required';
+                                }
+                                if (num.parse(value) is! int) {
+                                  return "Invalid Input";
+                                }
+                                return null;
                               },
-                            );
-                          },
-                        ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  padding: EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Text(
-                          "                                                     "),
-                      SizedBox(
-                        width: 150,
-                        child: TextField(
-                          decoration: const InputDecoration(
-                              hintText: 'Class 3',
-                              hintStyle: TextStyle(),
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(15)),
-                          onChanged: (value) {
-                            setState(
-                              () {
-                                ncls3 = value;
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      padding: EdgeInsets.all(2.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Text(
+                              "                                                     "),
+                          SizedBox(
+                            width: 150,
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  hintText: 'Class 2',
+                                  hintStyle: TextStyle(),
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(15)),
+                              onChanged: (value) {
+                                setState(
+                                  () {
+                                    ncls2 = value;
+                                  },
+                                );
                               },
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  padding: EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Text(
-                          "                                                     "),
-                      SizedBox(
-                        width: 150,
-                        child: TextField(
-                          decoration: const InputDecoration(
-                              hintText: 'Class 4',
-                              hintStyle: TextStyle(),
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(15)),
-                          onChanged: (value) {
-                            setState(
-                              () {
-                                ncls4 = value;
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Required';
+                                }
+                                if (num.parse(value) is! int) {
+                                  return "Invalid Input";
+                                }
+                                return null;
                               },
-                            );
-                          },
-                        ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  padding: EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Text(
-                          "                                                     "),
-                      SizedBox(
-                        width: 150,
-                        child: TextField(
-                          decoration: const InputDecoration(
-                              hintText: 'Class 5',
-                              hintStyle: TextStyle(),
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(15)),
-                          onChanged: (value) {
-                            setState(
-                              () {
-                                ncls5 = value;
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      padding: EdgeInsets.all(2.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Text(
+                              "                                                     "),
+                          SizedBox(
+                            width: 150,
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  hintText: 'Class 3',
+                                  hintStyle: TextStyle(),
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(15)),
+                              onChanged: (value) {
+                                setState(
+                                  () {
+                                    ncls3 = value;
+                                  },
+                                );
                               },
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.04,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Text(
-                        'Select Days',
-                        style: TextStyle(
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      DropdownButton<String>(
-                        value: selectedClass,
-                        items: _section
-                            .map(
-                              (sec) => DropdownMenuItem<String>(
-                                child: Text(sec),
-                                value: sec,
-                              ),
-                            )
-                            .toList(),
-                        hint: const Text('Select a day'),
-                        onChanged: (newValue) {
-                          setState(() {
-                            selectedClass = newValue;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.04,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  padding: EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Text("Tutoring Hours"),
-                      SizedBox(
-                        width: 150,
-                        child: TextField(
-                          decoration: const InputDecoration(
-                              hintText: 'From',
-                              hintStyle: TextStyle(),
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(15)),
-                          onChanged: (value) {
-                            setState(
-                              () {
-                                hfrom = value;
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Required';
+                                }
+                                if (num.parse(value) is! int) {
+                                  return "Invalid Input";
+                                }
+                                return null;
                               },
-                            );
-                          },
-                        ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  padding: EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Text("                             "),
-                      SizedBox(
-                        width: 150,
-                        child: TextField(
-                          decoration: const InputDecoration(
-                              hintText: 'To',
-                              hintStyle: TextStyle(),
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(15)),
-                          onChanged: (value) {
-                            setState(
-                              () {
-                                hto = value;
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      padding: EdgeInsets.all(2.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Text(
+                              "                                                     "),
+                          SizedBox(
+                            width: 150,
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  hintText: 'Class 4',
+                                  hintStyle: TextStyle(),
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(15)),
+                              onChanged: (value) {
+                                setState(
+                                  () {
+                                    ncls4 = value;
+                                  },
+                                );
                               },
-                            );
-                          },
-                        ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Required';
+                                }
+                                if (num.parse(value) is! int) {
+                                  return "Invalid Input";
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.04,
-                ),
-                CheckboxListTile(
-                  title: const Text(
-                      'We hereby confirm that we will provide all the resources to conduct the classes in an offline mode.',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "Alkalami",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      )),
-                  value: _ischecked,
-                  onChanged: (bool? value) {
-                    setState(
-                      () {
-                        _ischecked = value!;
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      padding: EdgeInsets.all(2.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Text(
+                              "                                                     "),
+                          SizedBox(
+                            width: 150,
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  hintText: 'Class 5',
+                                  hintStyle: TextStyle(),
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(15)),
+                              onChanged: (value) {
+                                setState(
+                                  () {
+                                    ncls5 = value;
+                                  },
+                                );
+                              },
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Required';
+                                }
+                                if (num.parse(value) is! int) {
+                                  return "Invalid Input";
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 1, horizontal: 0),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 1, horizontal: 0),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Text(
+                            'Select Days',
+                            style: TextStyle(
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          DropdownButton<String>(
+                            value: selectedClass,
+                            items: _section
+                                .map(
+                                  (sec) => DropdownMenuItem<String>(
+                                    child: Text(sec),
+                                    value: sec,
+                                  ),
+                                )
+                                .toList(),
+                            hint: const Text('Select a day'),
+                            onChanged: (newValue) {
+                              setState(() {
+                                selectedClass = newValue;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      padding: EdgeInsets.all(2.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Text("Tutoring Hours"),
+                          SizedBox(
+                            width: 150,
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  hintText: 'From',
+                                  hintStyle: TextStyle(),
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(15)),
+                              onChanged: (value) {
+                                setState(
+                                  () {
+                                    hfrom = value;
+                                  },
+                                );
+                              },
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Required';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      padding: EdgeInsets.all(2.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Text("                             "),
+                          SizedBox(
+                            width: 150,
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  hintText: 'To',
+                                  hintStyle: TextStyle(),
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(15)),
+                              onChanged: (value) {
+                                setState(
+                                  () {
+                                    hto = value;
+                                  },
+                                );
+                              },
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Required';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
+                    CheckboxListTile(
+                      title: const Text(
+                          'We hereby confirm that we will provide all the resources to conduct the classes in an offline mode.',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "Alkalami",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          )),
+                      value: _ischecked,
+                      onChanged: (bool? value) {
+                        setState(
+                          () {
+                            _ischecked = value!;
+                          },
+                        );
                       },
-                    );
-                  },
-                  controlAffinity: ListTileControlAffinity.leading,
+                      controlAffinity: ListTileControlAffinity.leading,
+                    ),
+                  ],
                 ),
-              ],
-            ),
               ),
-          ),
+            ),
           ),
           bottomNavigationBar: BottomAppBar(
             child: Container(
@@ -452,13 +509,14 @@ class NextNGOPageState extends State<NextNGOPage> {
 
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => FirebaseSearchScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => MentorSearchScreen()),
                     );
                   },
                   child: const Text('Submit'),
                 )
               : SizedBox()),
-      );
+    );
   }
 }
 

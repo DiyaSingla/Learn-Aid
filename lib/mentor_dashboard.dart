@@ -2,34 +2,22 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_aid/reusable_widget.dart';
 
-import 'mentor_info.dart';
 import 'ngo_info.dart';
 
-class MentorSearchScreen extends StatefulWidget {
-  MentorSearchScreen({Key? key}) : super(key: key);
+class NGOSearchScreen extends StatefulWidget {
+  NGOSearchScreen({Key? key}) : super(key: key);
 
   @override
-  State<MentorSearchScreen> createState() => MentorSearchScreenState();
+  State<NGOSearchScreen> createState() => NGOSearchScreenState();
 }
 
-class MentorSearchScreenState extends State<MentorSearchScreen> {
+class NGOSearchScreenState extends State<NGOSearchScreen> {
   List searchResult = [];
-
-  String? selectedClass = 'Class 1';
-
-  final List<String> _section = [
-    'Class 1',
-    'Class 2',
-    'Class 3',
-    'Class 4',
-    'Class 5',
-  ];
 
   void searchFromFirebase(String query) async {
     final result = await FirebaseFirestore.instance
-        .collection('MentorUsers')
-        .where('selectedSubject', isEqualTo: query)
-        .where('selectedClass', isEqualTo: selectedClass)
+        .collection('NgoUsers')
+        .where('name', isEqualTo: query)
         .get();
 
     setState(() {
@@ -41,39 +29,11 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("List of Mentors"),
+        title: const Text("List of NGOs"),
       ),
       body: Column(
         children: [
-          Text(
-            'Select Class:',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 18.0,
-            ),
-          ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-          DropdownButton<String>(
-            value: selectedClass,
-            items: _section
-                .map(
-                  (sec) => DropdownMenuItem<String>(
-                    child: Text(sec),
-                    value: sec,
-                  ),
-                )
-                .toList(),
-            hint: const Text(
-              'Select a class',
-              style: TextStyle(color: Colors.white),
-            ),
-            onChanged: (newValue) {
-              setState(() {
-                selectedClass = newValue;
-              });
-            },
-          ),
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: TextField(
@@ -95,7 +55,7 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => MentorInformation(
+                            builder: (context) => NGOInformation(
                                 searchRecord: searchResult, index: index)),
                       );
                     },
@@ -107,12 +67,23 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
                             Color.fromARGB(255, 95, 94, 94),
                             Colors.grey
                           ])),
-                      child: searchMentor(
+                      child: searchNGO(
                           searchResult[index]['name'],
                           searchResult[index]['phone'],
-                          searchResult[index]['selectedSubject'],
-                          searchResult[index]['selectedClass']),
+                          searchResult[index]['add1'],
+                          searchResult[index]['add2']),
                     ));
+                // return ListTile(
+                //   title: Text(searchResult[index]['name']),
+                //   subtitle: Text(searchResult[index]['add1']),
+                //   trailing: Text(searchResult[index]['ph']),
+                //   onTap: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //           builder: (context) => NGOInformation(
+                //               searchRecord: searchResult, index: index)),
+                //     );
               },
             ),
           ),

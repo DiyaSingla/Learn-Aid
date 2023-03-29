@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_aid/activity_page.dart';
+import 'mentor_dashboard.dart';
 import 'registration_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -162,7 +163,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                   ),
                   CheckboxListTile(
                     title: const Text(
-                        'I hereby confirm that I will conduct the classes in an offline mode at the above chosen day, time and venue every week.',
+                        'I hereby confirm that I will conduct the classes in an offline mode at the above chosen day and time every week.',
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: "Alkalami",
@@ -185,23 +186,25 @@ class _NextMentorPageState extends State<NextMentorPage> {
                               onPressed: () {
                                 // Store the value when the button is pressed
                                 final docUser = FirebaseFirestore.instance
-                                .collection('MentorUsers')
-                                .doc(widget.Id);
-                            docUser.update({
-                              'selectedClass': selectedClass,
-                              'selectedSubject': selectedSubject,
-                              'selectedTopic': selectedTopic,
-                            });
+                                    .collection('MentorUsers')
+                                    .doc(widget.Id);
+                                docUser.update({
+                                  'selectedClass': selectedClass,
+                                  'selectedSubject': selectedSubject,
+                                  'selectedTopic': selectedTopic,
+                                });
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => ActivityPage(),
+                                    builder: (context) => NGOSearchScreen(),
                                   ),
                                 );
                               },
                               child: const Text('Submit'),
                             )
-                          : SizedBox(height: MediaQuery.of(context).size.height * 0.04))
+                          : SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.04))
                 ],
               ),
             ),

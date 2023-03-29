@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_aid/registration_page.dart';
-import 'dashboard.dart';
 import 'signup.dart';
 
 import 'reusable_widget.dart';
@@ -54,11 +53,15 @@ class _SignInState extends State<SignIn> {
                         email: _emailTextController.text,
                         password: _passwordTextController.text)
                     .then((value) {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => RegistrationPage(
-                        email: _emailTextController.text
-                      )));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RegistrationPage(
+                              email: _emailTextController.text)));
                 }).onError((error, stackTrace) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Error ${error.toString()}")),
+                  );
                   print("Error ${error.toString()}");
                 });
               }),
