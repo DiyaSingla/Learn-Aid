@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_aid/reusable_widget.dart';
 
 import 'mentor_info.dart';
-import 'ngo_info.dart';
+
 
 class MentorSearchScreen extends StatefulWidget {
   MentorSearchScreen({Key? key}) : super(key: key);

@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_aid/registration_page.dart';
+import 'mentor_dashboard.dart';
+import 'ngo_dashboard.dart';
 import 'signup.dart';
 
 import 'reusable_widget.dart';
@@ -53,11 +56,7 @@ class _SignInState extends State<SignIn> {
                         email: _emailTextController.text,
                         password: _passwordTextController.text)
                     .then((value) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => RegistrationPage(
-                              email: _emailTextController.text)));
+                  checkCategory(_emailTextController.text);
                 }).onError((error, stackTrace) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text("Error ${error.toString()}")),
@@ -91,5 +90,54 @@ class _SignInState extends State<SignIn> {
         )
       ],
     );
+  }
+
+  void checkCategory(String email) async {
+    List mentor = await searchMentorFromFirebase(email);
+    print(mentor.toString());
+    if (mentor.isEmpty == true) {
+      List ngo = await searchNgoFromFirebase(email);
+      if (ngo.isEmpty == true) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text("Please complete your registration first.")),
+        );
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Scaffold(
+                    body: RegistrationPage(email: _emailTextController.text))));
+      } else {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => MentorSearchScreen()));
+      }
+    } else {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => NGOSearchScreen()));
+    }
+  }
+
+  Future<List> searchMentorFromFirebase(String query) async {
+    final result = await FirebaseFirestore.instance
+        .collection('MentorUsers')
+        .where('email', isEqualTo: query)
+        .get();
+    List searchResult = [];
+    setState(() {
+      searchResult = result.docs.map((e) => e.data()).toList();
+    });
+    return searchResult;
+  }
+
+  Future<List> searchNgoFromFirebase(String query) async {
+    final result = await FirebaseFirestore.instance
+        .collection('NgoUsers')
+        .where('email', isEqualTo: query)
+        .get();
+    List searchResult = [];
+    setState(() {
+      searchResult = result.docs.map((e) => e.data()).toList();
+    });
+    return searchResult;
   }
 }

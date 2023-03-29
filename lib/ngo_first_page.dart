@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'ngo_second_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -126,7 +124,7 @@ class FirstPageState extends State<FirstPage> {
                       onChanged: (value) {
                         // store the value entered in the text field
                         setState(() {
-                          ngoName = value;
+                          ph = value;
                         });
                       },
                       //textAlign: TextAlign.center,
@@ -255,6 +253,7 @@ class FirstPageState extends State<FirstPage> {
               hrto: '',
               hrfrom: '',
               selectedClass: '',
+              email : widget.email,
             );
             w.createUserNgo(user);
 

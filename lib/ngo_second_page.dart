@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learn_aid/activity_page.dart';
 import 'ngo_dashboard.dart';
-import 'registration_page.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'ngo_first_page.dart';
 import 'write_ngodata.dart';
 
 // use widget.variablename to access variable value in stateful widgets
@@ -36,31 +32,6 @@ class NextNGOPageState extends State<NextNGOPage> {
     'Sunday',
     'Both',
   ];
-  Stream<List<NgoUser2>> readUsers() => FirebaseFirestore.instance
-      .collection('NgoUser2')
-      .snapshots()
-      .map((snapshot) =>
-          snapshot.docs.map((doc) => NgoUser2.fromJson(doc.data())).toList());
-  /*Future createUser(WriteNgoData user)async {
-      final docUser = FirebaseFirestore.instance.collection('NgoUsers').doc();
-      final user = WriteNgoData(
-        id : docUser.id,
-        name : widget.name,
-        phone : z.ph,
-        add1 : z.add1,
-        add2 : z.add2,
-        numcls1 : ncls1,
-        numcls2 : ncls2,
-        numcls3 : ncls3,
-        numcls4 : ncls4,
-        numcls5 : ncls5,
-        hrto : hto,
-        hrfrom: hfrom,
-        selectedClass : this.selectedClass,
-      );
-      final json = user.toJson();
-      await docUser.set(json);
-  } */
 
   @override
   Widget build(BuildContext context) {
@@ -520,49 +491,3 @@ class NextNGOPageState extends State<NextNGOPage> {
   }
 }
 
-class NgoUser2 {
-  String id;
-  String numcls1;
-  String numcls2;
-  String numcls3;
-  String numcls4;
-  String numcls5;
-  String hrto;
-  String hrfrom;
-  String? selectedClass;
-
-  NgoUser2({
-    this.id = '',
-    this.numcls1 = '',
-    this.numcls2 = '',
-    this.numcls3 = '',
-    this.numcls4 = '',
-    this.numcls5 = '',
-    this.hrto = '',
-    this.hrfrom = '',
-    this.selectedClass = '',
-  });
-
-  Map<String, String> toJson() => {
-        'id': id,
-        'numcls1': numcls1,
-        'numcls2': numcls2,
-        'numcls3': numcls3,
-        'numcls4': numcls4,
-        'numcls5': numcls5,
-        'hrto': hrto,
-        'hrfrom': hrfrom,
-        //'selectedClass' : selectedClass,
-      };
-
-  static NgoUser2 fromJson(Map<String, dynamic> json) => NgoUser2(
-        id: json['id'],
-        numcls1: json['numcls1'],
-        numcls2: json['numcls2'],
-        numcls3: json['numcls3'],
-        numcls4: json['numcls4'],
-        numcls5: json['numcls5'],
-        hrto: json['hrto'],
-        hrfrom: json['hrfrom'],
-      );
-}

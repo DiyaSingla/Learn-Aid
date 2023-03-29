@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learn_aid/activity_page.dart';
 import 'registration_page.dart';
 
 class DonationPage extends StatefulWidget {
@@ -149,10 +148,7 @@ class _DonationPageState extends State<DonationPage> {
                   const SizedBox(height: 20.0),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ActivityPage()),
-                      );
+                      Navigator.pop(context);
                     },
                     child: const Text('Submit'),
                   ),

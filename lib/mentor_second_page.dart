@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_aid/activity_page.dart';
 import 'mentor_dashboard.dart';
-import 'registration_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class NextMentorPage extends StatefulWidget {

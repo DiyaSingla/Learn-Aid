@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learn_aid/activity_page.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 import 'registration_page.dart';
@@ -152,12 +151,7 @@ class _AboutUsState extends State<AboutUs> {
                 child: ElevatedButton(
                   onPressed: () {
                     // Store the value when the button is pressed
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ActivityPage(),
-                      ),
-                    );
+                    Navigator.pop(context);
                   },
                   child: const Text('GO BACK'),
                 ),
