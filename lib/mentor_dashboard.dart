@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:learn_aid/reusable_widget.dart';
 import 'package:learn_aid/signin.dart';
 import 'package:learn_aid/about_us.dart';
+import 'package:learn_aid/view_profile.dart';
 
 import 'ngo_info.dart';
 
 class NGOSearchScreen extends StatefulWidget {
-  NGOSearchScreen({Key? key}) : super(key: key);
+  NGOSearchScreen({super.key, required this.list, required this.type});
+  final List list;
+  final int type;
 
   @override
   State<NGOSearchScreen> createState() => NGOSearchScreenState();
@@ -18,7 +21,8 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
   List searchResult = [];
 
   void getAllData() async {
-    final result = await FirebaseFirestore.instance.collection('NgoUsers').get();
+    final result =
+        await FirebaseFirestore.instance.collection('NgoUsers').get();
 
     setState(() {
       searchResult = result.docs.map((e) => e.data()).toList();
@@ -73,6 +77,11 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
               onSelected: (String value) {
                 switch (value) {
                   case "profile":
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ViewProfile(
+                                list: widget.list, type: widget.type)));
                     break;
                   case "about":
                     Navigator.pushReplacement(

@@ -86,7 +86,6 @@ class _SignInState extends State<SignIn> {
 
   void checkCategory(String email) async {
     List mentor = await searchMentorFromFirebase(email);
-    print(mentor.toString());
     if (mentor.isEmpty == true) {
       List ngo = await searchNgoFromFirebase(email);
       if (ngo.isEmpty == true) {
@@ -100,12 +99,16 @@ class _SignInState extends State<SignIn> {
                 builder: (context) => Scaffold(
                     body: RegistrationPage(email: _emailTextController.text))));
       } else {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => MentorSearchScreen()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => MentorSearchScreen(list: ngo, type: 1)));
       }
     } else {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => NGOSearchScreen()));
+          context,
+          MaterialPageRoute(
+              builder: (context) => NGOSearchScreen(list: mentor, type: 0)));
     }
   }
 

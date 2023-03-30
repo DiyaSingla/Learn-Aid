@@ -468,7 +468,8 @@ class NextNGOPageState extends State<NextNGOPage> {
                   ncls4.isNotEmpty &&
                   ncls5.isNotEmpty &&
                   hto.isNotEmpty &&
-                  hfrom.isNotEmpty && selectedClass != null
+                  hfrom.isNotEmpty &&
+                  selectedClass != null
               ? FloatingActionButton(
                   onPressed: () {
                     final docUser = FirebaseFirestore.instance
@@ -488,7 +489,10 @@ class NextNGOPageState extends State<NextNGOPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MentorSearchScreen()),
+                          builder: (context) => MentorSearchScreen(
+                                list: [],
+                                type: 1,
+                              )),
                     );
                   },
                   backgroundColor: Color(0xff4a4a4a),

@@ -276,7 +276,10 @@ class _NextMentorPageState extends State<NextMentorPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => NGOSearchScreen(),
+                                    builder: (context) => NGOSearchScreen(
+                                      list: [],
+                                      type: 0,
+                                    ),
                                   ),
                                 );
                               },
