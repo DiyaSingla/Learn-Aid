@@ -38,7 +38,6 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    getAllData();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Dashboard"),
@@ -127,7 +126,12 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
                   hintText: "Search NGO by Zone",
                 ),
                 onChanged: (query) {
-                  searchFromFirebase(query);
+                  if (query.isEmpty) {
+                    getAllData();
+                  }
+                  else {
+                    searchFromFirebase(query);
+                  }                
                 },
               ),
             ),

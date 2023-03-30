@@ -17,7 +17,6 @@ class MentorSearchScreen extends StatefulWidget {
 class MentorSearchScreenState extends State<MentorSearchScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List searchResult = [];
-  
 
   String? selectedClass = 'Class 1';
 
@@ -30,7 +29,8 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
   ];
 
   void getAllData() async {
-    final result = await FirebaseFirestore.instance.collection('MentorUsers').get();
+    final result =
+        await FirebaseFirestore.instance.collection('MentorUsers').get();
 
     setState(() {
       searchResult = result.docs.map((e) => e.data()).toList();
@@ -52,7 +52,6 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    getAllData();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Dashboard"),
@@ -169,7 +168,12 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
                   hintText: "Search Here",
                 ),
                 onChanged: (query) {
-                  searchFromFirebase(query);
+                  if (query.isEmpty == true) {
+                    getAllData();
+                  }
+                  else {
+                    searchFromFirebase(query);
+                  }                 
                 },
               ),
             ),
@@ -178,28 +182,33 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
                 itemCount: searchResult.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MentorInformation(
-                                  searchRecord: searchResult, index: index)),
-                        );
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(10),
-                            gradient: const LinearGradient(colors: [
-                              Color.fromARGB(255, 95, 94, 94),
-                              Colors.grey
-                            ])),
-                        child: searchMentor(
-                            searchResult[index]['name'],
-                            searchResult[index]['phone'],
-                            searchResult[index]['selectedSubject'],
-                            searchResult[index]['selectedClass']),
-                      ));
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MentorInformation(
+                            searchRecord: searchResult,
+                            index: index,
+                          ),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: const LinearGradient(colors: [
+                            Color.fromARGB(255, 95, 94, 94),
+                            Colors.grey
+                          ])),
+                      child: searchMentor(
+                        searchResult[index]['name'],
+                        searchResult[index]['phone'],
+                        searchResult[index]['selectedSubject'],
+                        searchResult[index]['selectedClass'],
+                      ),
+                    ),
+                  );
                 },
               ),
             ),
