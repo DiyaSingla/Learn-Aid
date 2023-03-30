@@ -155,8 +155,8 @@ class _NextMentorPageState extends State<NextMentorPage> {
                           ),
                         ),
                         DropdownButton<String>(
-                          value: selectedClass,
-                          items: _section
+                          value: selectedSubject,
+                          items: _subjects
                               .map(
                                 (subject) => DropdownMenuItem<String>(
                                   child: Text(subject),
@@ -237,14 +237,14 @@ class _NextMentorPageState extends State<NextMentorPage> {
                   SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                   CheckboxListTile(
                     title: const Text(
-                        'I hereby confirm that I will conduct the classes in an offline mode at the above chosen day and time every week.',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: "Alkalami",
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                        ),
+                      'I hereby confirm that I will conduct the classes in an offline mode at the above chosen day and time every week.',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: "Alkalami",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                    ),
                     value: _isChecked,
                     onChanged: (bool? value) {
                       setState(
@@ -258,9 +258,11 @@ class _NextMentorPageState extends State<NextMentorPage> {
                   Center(
                       child: _isChecked == true
                           ? ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:MaterialStateProperty.all<Color>(Color(0xff4a4a4a)),
-                            ),
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Color(0xff4a4a4a)),
+                              ),
                               onPressed: () {
                                 // Store the value when the button is pressed
                                 final docUser = FirebaseFirestore.instance

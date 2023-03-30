@@ -29,7 +29,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
           ),
           ),
         ),
-        body: Container(
+        body:Container(
+        constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/background.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child:Container(
           constraints: const BoxConstraints.expand(),
           color: Colors.black87,
           child: SingleChildScrollView(
@@ -129,6 +137,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             ),
           ),
         ),
+      ),
       ),
     );
   }

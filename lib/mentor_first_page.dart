@@ -18,7 +18,6 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
   String name = '';
   String age = '';
   String ph = '';
-  //String _proof = '';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -316,7 +315,6 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
       floatingActionButton:
           ph.isNotEmpty && name.isNotEmpty && age.isNotEmpty && org.isNotEmpty
               ? FloatingActionButton(
-                
                   onPressed: () {
                     final user = WriteMentorData(
                       name: name,
@@ -338,11 +336,12 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                       ),
                     );
                   },
-                   backgroundColor:Color(0xff4a4a4a),
-                  child: const Text('Next',
-                  style: TextStyle(
-                    color: Colors.white, 
-                  ),
+                  backgroundColor: Color(0xff4a4a4a),
+                  child: const Text(
+                    'Next',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 )
               : null,

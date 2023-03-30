@@ -234,11 +234,13 @@ class FirstPageState extends State<FirstPage> {
         ),
         bottomNavigationBar: BottomAppBar(
           child: Container(
-            height: 10.0,
-            width: 10.0,
+            height: MediaQuery.of(context).size.height * 0.1,
+            width: MediaQuery.of(context).size.width * 0.1,
           ),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: 
+        ngoName.isNotEmpty && ph.isNotEmpty && add1.isNotEmpty && add2.isNotEmpty
+        ?FloatingActionButton(
           onPressed: () {
             final user = WriteNgoData(
               name: ngoName,
@@ -256,7 +258,6 @@ class FirstPageState extends State<FirstPage> {
               email : widget.email,
             );
             w.createUserNgo(user);
-
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => NextNGOPage(ID: w.id)),
@@ -268,7 +269,7 @@ class FirstPageState extends State<FirstPage> {
             color: Colors.white,
           ),
           ),
-        ),
+        ):null
       ),
     );
   }

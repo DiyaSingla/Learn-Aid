@@ -20,7 +20,7 @@ class Dashboard extends StatelessWidget {
       child: RichText(
         textAlign: TextAlign.justify,
         text: TextSpan(
-            text: 'hello! this is the dashboard',
+            text: 'Hello! this is the dashboard',
             style: TextStyle(color: Colors.black, fontSize: 20)),
       ),
     );
