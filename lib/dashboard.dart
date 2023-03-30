@@ -11,7 +11,7 @@ class Dashboard extends StatelessWidget {
       child: Hero(
           tag: 'logo',
           child: SizedBox(
-            height: 160,
+            height: MediaQuery.of(context).size.height * 0.2,
             child: Image.asset('images/learnaidlogo.jpeg'),
           )),
     );

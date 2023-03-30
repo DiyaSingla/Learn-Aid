@@ -91,7 +91,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                   height: MediaQuery.of(context).size.height * 0.005,
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
+                  height: MediaQuery.of(context).size.height * 0.08,
                   width: MediaQuery.of(context).size.width * 0.75,
                   margin:
                       const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -111,12 +111,12 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     },
                     //textAlign: TextAlign.center,
                     decoration: InputDecoration(
-                      hintText: 'Enter Your Name',
-                      hintStyle: TextStyle(
+                      labelText: 'Enter Your Name',
+                      labelStyle: TextStyle(
                         color: Colors.white.withOpacity(0.8),
                       ),
                       border: InputBorder.none,
-                      contentPadding: const EdgeInsets.all(15),
+                      contentPadding: const EdgeInsets.all(8),
                     ),
                   ),
                 ),
@@ -124,7 +124,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                   height: MediaQuery.of(context).size.height * 0.002,
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
+                  height: MediaQuery.of(context).size.height * 0.08,
                   width: MediaQuery.of(context).size.width * 0.75,
                   margin:
                       const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -144,12 +144,12 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     },
                     //textAlign: TextAlign.center,
                     decoration: InputDecoration(
-                      hintText: 'Enter Your Age',
-                      hintStyle: TextStyle(
+                      labelText: 'Enter Your Age',
+                      labelStyle: TextStyle(
                         color: Colors.white.withOpacity(0.8),
                       ),
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.all(15),
+                      contentPadding: EdgeInsets.all(8),
                     ),
                   ),
                 ),
@@ -157,7 +157,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                   height: MediaQuery.of(context).size.height * 0.002,
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
+                  height: MediaQuery.of(context).size.height * 0.08,
                   width: MediaQuery.of(context).size.width * 0.75,
                   margin:
                       const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -174,12 +174,12 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                       });
                     },
                     decoration: InputDecoration(
-                      hintText: 'Enter Your Phone Number',
-                      hintStyle: TextStyle(
+                      labelText: 'Enter Your Phone Number',
+                      labelStyle: TextStyle(
                         color: Colors.white.withOpacity(0.8),
                       ),
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.all(15),
+                      contentPadding: EdgeInsets.all(8),
                     ),
                   ),
                 ),
@@ -248,7 +248,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                   ),
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
+                  height: MediaQuery.of(context).size.height * 0.08,
                   width: MediaQuery.of(context).size.width * 0.75,
                   margin:
                       const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -268,12 +268,12 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     },
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
-                      hintText: 'Enter Your Organisation',
-                      hintStyle: TextStyle(
+                      labelText: 'Enter Your Organisation',
+                      labelStyle: TextStyle(
                         color: Colors.white.withOpacity(0.8),
                       ),
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.all(15),
+                      contentPadding: EdgeInsets.all(8),
                     ),
                   ),
                 ),
@@ -288,6 +288,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                       launch('https://www.youtube.com/');
                     },
                     style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white.withOpacity(0.3),
                       padding: EdgeInsets.zero,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -309,12 +310,13 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
       bottomNavigationBar: BottomAppBar(
         child: Container(
           height: MediaQuery.of(context).size.height * 0.02,
-          width: MediaQuery.of(context).size.width * 0.02,
+          width: MediaQuery.of(context).size.width * 0.06,
         ),
       ),
       floatingActionButton:
           ph.isNotEmpty && name.isNotEmpty && age.isNotEmpty && org.isNotEmpty
               ? FloatingActionButton(
+                
                   onPressed: () {
                     final user = WriteMentorData(
                       name: name,
@@ -336,7 +338,12 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                       ),
                     );
                   },
-                  child: const Text('Next'),
+                   backgroundColor:Color(0xff4a4a4a),
+                  child: const Text('Next',
+                  style: TextStyle(
+                    color: Colors.white, 
+                  ),
+                  ),
                 )
               : null,
     ));

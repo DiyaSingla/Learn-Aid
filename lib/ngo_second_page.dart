@@ -87,7 +87,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -131,7 +131,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -176,7 +176,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -221,7 +221,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -266,7 +266,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -314,7 +314,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                           vertical: 1, horizontal: 0),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -355,7 +355,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -396,7 +396,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -484,7 +484,12 @@ class NextNGOPageState extends State<NextNGOPage> {
                           builder: (context) => MentorSearchScreen()),
                     );
                   },
-                  child: const Text('Submit'),
+                   backgroundColor:Color(0xff4a4a4a),
+                  child: const Text('Submit',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                  ),
                 )
               : SizedBox()),
     );

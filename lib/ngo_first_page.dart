@@ -72,7 +72,7 @@ class FirstPageState extends State<FirstPage> {
                   ),
                   //Starting from here
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.06,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.75,
                     margin:
                         const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -91,12 +91,12 @@ class FirstPageState extends State<FirstPage> {
                       },
                       //textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                        hintText: 'Name of NGO',
-                        hintStyle: TextStyle(
+                        labelText: 'Name of NGO',
+                        labelStyle: TextStyle(
                           color: Colors.white.withOpacity(0.8),
                         ),
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(15),
+                        contentPadding: EdgeInsets.all(8),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -110,7 +110,7 @@ class FirstPageState extends State<FirstPage> {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.06,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.75,
                     margin:
                         const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -129,12 +129,12 @@ class FirstPageState extends State<FirstPage> {
                       },
                       //textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                        hintText: 'Phone Number',
-                        hintStyle: TextStyle(
+                        labelText: 'Phone Number',
+                        labelStyle: TextStyle(
                           color: Colors.white.withOpacity(0.8),
                         ),
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(15),
+                        contentPadding: EdgeInsets.all(8),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -154,7 +154,7 @@ class FirstPageState extends State<FirstPage> {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.06,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.75,
                     margin:
                         const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -173,12 +173,12 @@ class FirstPageState extends State<FirstPage> {
                       },
                       //textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                        hintText: 'Office Address Line 1',
-                        hintStyle: TextStyle(
+                        labelText: 'Office Address Line 1',
+                        labelStyle: TextStyle(
                           color: Colors.white.withOpacity(0.8),
                         ),
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(15),
+                        contentPadding: EdgeInsets.all(8),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -193,7 +193,7 @@ class FirstPageState extends State<FirstPage> {
                   ),
 
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.06,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.75,
                     margin:
                         const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -212,12 +212,12 @@ class FirstPageState extends State<FirstPage> {
                       },
                       //textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                        hintText: 'Office Address Line 2',
-                        hintStyle: TextStyle(
+                        labelText: 'Office Address Line 2',
+                        labelStyle: TextStyle(
                           color: Colors.white.withOpacity(0.8),
                         ),
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(15),
+                        contentPadding: EdgeInsets.all(8),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -262,7 +262,12 @@ class FirstPageState extends State<FirstPage> {
               MaterialPageRoute(builder: (context) => NextNGOPage(ID: w.id)),
             );
           },
-          child: const Text('Next'),
+           backgroundColor:Color(0xff4a4a4a),
+          child: const Text('Next',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+          ),
         ),
       ),
     );

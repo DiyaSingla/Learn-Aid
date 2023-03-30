@@ -63,36 +63,63 @@ class _NextMentorPageState extends State<NextMentorPage> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text(
-                    'Select Class:',
+                    'Classes:',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 18.0,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  DropdownButton<String>(
-                    value: selectedClass,
-                    items: _section
-                        .map(
-                          (sec) => DropdownMenuItem<String>(
-                            child: Text(sec),
-                            value: sec,
-                          ),
-                        )
-                        .toList(),
-                    hint: const Text(
-                      'Select a class',
-                      style: TextStyle(color: Colors.white),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.grey,
+                        width: 1,
+                      ),
                     ),
-                    onChanged: (newValue) {
-                      setState(() {
-                        selectedClass = newValue;
-                      });
-                    },
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 0.0),
+                            child: Text(
+                              'Select a class',
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ),
+                        DropdownButton<String>(
+                          value: selectedClass,
+                          items: _section
+                              .map(
+                                (sec) => DropdownMenuItem<String>(
+                                  child: Text(sec),
+                                  value: sec,
+                                ),
+                              )
+                              .toList(),
+                          hint: const Text(
+                            'Select a class',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onChanged: (newValue) {
+                            setState(() {
+                              selectedClass = newValue;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                   const Text(
@@ -104,61 +131,110 @@ class _NextMentorPageState extends State<NextMentorPage> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  DropdownButton<String>(
-                    value: selectedSubject,
-                    items: _subjects
-                        .map(
-                          (subject) => DropdownMenuItem<String>(
-                            child: Text(subject),
-                            value: subject,
-                          ),
-                        )
-                        .toList(),
-                    hint: const Text(
-                      'Select a subject',
-                      style: TextStyle(color: Colors.white),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.grey,
+                        width: 1,
+                      ),
                     ),
-                    onChanged: (newValue) {
-                      setState(() {
-                        selectedSubject = newValue;
-                      });
-                    },
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 0.0),
+                            child: Text(
+                              'Select a subject',
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ),
+                        DropdownButton<String>(
+                          value: selectedClass,
+                          items: _section
+                              .map(
+                                (subject) => DropdownMenuItem<String>(
+                                  child: Text(subject),
+                                  value: subject,
+                                ),
+                              )
+                              .toList(),
+                          hint: const Text(
+                            'Select a subject',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onChanged: (newValue) {
+                            setState(() {
+                              selectedSubject = newValue;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                   const Text(
-                    'Select your topic:',
+                    'Topics:',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 18.0,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  DropdownButton<String>(
-                    value: selectedTopic,
-                    items: _topics
-                        .map(
-                          (topic) => DropdownMenuItem<String>(
-                            child: Text(
-                              topic,
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            value: topic,
-                          ),
-                        )
-                        .toList(),
-                    hint: const Text(
-                      'Select a topic',
-                      style: TextStyle(color: Colors.white),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.grey,
+                        width: 1,
+                      ),
                     ),
-                    onChanged: (newValue) {
-                      setState(
-                        () {
-                          selectedTopic = newValue;
-                        },
-                      );
-                    },
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 0.0),
+                            child: Text(
+                              'Select a topic',
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ),
+                        DropdownButton<String>(
+                          value: selectedTopic,
+                          items: _topics
+                              .map(
+                                (topic) => DropdownMenuItem<String>(
+                                  child: Text(topic),
+                                  value: topic,
+                                ),
+                              )
+                              .toList(),
+                          hint: const Text(
+                            'Select a topic',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onChanged: (newValue) {
+                            setState(() {
+                              selectedTopic = newValue;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
                   ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                   CheckboxListTile(
                     title: const Text(
                         'I hereby confirm that I will conduct the classes in an offline mode at the above chosen day and time every week.',
@@ -167,7 +243,8 @@ class _NextMentorPageState extends State<NextMentorPage> {
                           fontFamily: "Alkalami",
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
-                        )),
+                        ),
+                        ),
                     value: _isChecked,
                     onChanged: (bool? value) {
                       setState(
@@ -181,6 +258,9 @@ class _NextMentorPageState extends State<NextMentorPage> {
                   Center(
                       child: _isChecked == true
                           ? ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor:MaterialStateProperty.all<Color>(Color(0xff4a4a4a)),
+                            ),
                               onPressed: () {
                                 // Store the value when the button is pressed
                                 final docUser = FirebaseFirestore.instance

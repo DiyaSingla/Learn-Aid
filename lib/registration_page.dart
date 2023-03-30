@@ -23,19 +23,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Color(0xff4a4a4a),
-          title: Text('Registration Page'),
+          title: Text('Registration Page',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+          ),
         ),
         body: Container(
-          // padding: EdgeInsets.zero,
           constraints: const BoxConstraints.expand(),
           color: Colors.black87,
-          // decoration: const BoxDecoration(
-          //   // image: DecorationImage(
-          //   //   //image: AssetImage('images/background.jpg'),
-          //   //   fit: BoxFit.cover,
-          //   // ),
-          // ),
-
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.fromLTRB(
@@ -63,14 +59,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           child: Column(
                             children: [
                               Ink.image(
-                                // image: NetworkImage(
-                                //     'https://danamojo.org/site/wp-content/uploads/2016/04/ngo-building.png'),
-                                // height: 200,
-                                // width: 200,
                                 image:AssetImage(
                                   'images/registrationpage.png'),
                                 height:
-                                    MediaQuery.of(context).size.height * 0.45,
+                                    MediaQuery.of(context).size.height * 0.35,
                                 width: MediaQuery.of(context).size.width * 0.50,
                                 fit: BoxFit.cover,
                               ),
@@ -114,7 +106,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                     'https://d22bbllmj4tvv8.cloudfront.net/d5/c0/efaeb96d41e3a674f8d2ed576bed/what-is-mentoring1-square.jpg'),
                                 // height: 200,
                                 // width: 200,
-                                height: MediaQuery.of(context).size.height * 0.25,
+                                height: MediaQuery.of(context).size.height * 0.35,
                                 width: MediaQuery.of(context).size.width * 0.50,
                                 fit: BoxFit.cover,
                               ),
