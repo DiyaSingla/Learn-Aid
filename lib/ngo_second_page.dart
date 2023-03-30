@@ -461,7 +461,14 @@ class NextNGOPageState extends State<NextNGOPage> {
               width: 15.0,
             ),
           ),
-          floatingActionButton: _ischecked == true
+          floatingActionButton: _ischecked == true &&
+                  ncls1.isNotEmpty &&
+                  ncls2.isNotEmpty &&
+                  ncls3.isNotEmpty &&
+                  ncls4.isNotEmpty &&
+                  ncls5.isNotEmpty &&
+                  hto.isNotEmpty &&
+                  hfrom.isNotEmpty && selectedClass != null
               ? FloatingActionButton(
                   onPressed: () {
                     final docUser = FirebaseFirestore.instance
@@ -484,15 +491,15 @@ class NextNGOPageState extends State<NextNGOPage> {
                           builder: (context) => MentorSearchScreen()),
                     );
                   },
-                   backgroundColor:Color(0xff4a4a4a),
-                  child: const Text('Submit',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+                  backgroundColor: Color(0xff4a4a4a),
+                  child: const Text(
+                    'Submit',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 )
               : SizedBox()),
     );
   }
 }
-

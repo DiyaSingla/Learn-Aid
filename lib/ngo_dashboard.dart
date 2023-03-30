@@ -17,6 +17,7 @@ class MentorSearchScreen extends StatefulWidget {
 class MentorSearchScreenState extends State<MentorSearchScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List searchResult = [];
+  
 
   String? selectedClass = 'Class 1';
 
@@ -27,6 +28,15 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
     'Class 4',
     'Class 5',
   ];
+
+  void getAllData() async {
+    final result = await FirebaseFirestore.instance.collection('MentorUsers').get();
+
+    setState(() {
+      searchResult = result.docs.map((e) => e.data()).toList();
+    });
+  }
+  
 
   void searchFromFirebase(String query) async {
     final result = await FirebaseFirestore.instance
@@ -42,6 +52,7 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    getAllData();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Dashboard"),

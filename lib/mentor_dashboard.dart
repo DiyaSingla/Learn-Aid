@@ -17,15 +17,13 @@ class NGOSearchScreen extends StatefulWidget {
 class NGOSearchScreenState extends State<NGOSearchScreen> {
   List searchResult = [];
 
-  // Future<List> readNgoUsers() async {
-  //   final result =
-  //       await FirebaseFirestore.instance.collection('NgoUsers').get();
-  //   List searchResult = [];
-  //   setState(() {
-  //     searchResult = result.docs.map((e) => e.data()).toList();
-  //   });
-  //   return searchResult;
-  // }
+  void getAllData() async {
+    final result = await FirebaseFirestore.instance.collection('NgoUsers').get();
+
+    setState(() {
+      searchResult = result.docs.map((e) => e.data()).toList();
+    });
+  }
 
   void searchFromFirebase(String query) async {
     final result = await FirebaseFirestore.instance
@@ -40,6 +38,7 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    getAllData();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Dashboard"),

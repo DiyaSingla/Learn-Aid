@@ -27,7 +27,7 @@ class MentorInformation extends StatelessWidget {
         title: const Padding(
           padding: EdgeInsets.all(5.0),
           child: Text(
-            'NGO Information',
+            'Mentor Information',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontFamily: "Alkalami",
