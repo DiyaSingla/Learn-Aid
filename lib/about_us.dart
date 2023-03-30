@@ -42,7 +42,7 @@ class _AboutUsState extends State<AboutUs> {
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                 const Text(
-                  'Here is how you can contact us',
+                  'Contact Us',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.normal,
