@@ -57,7 +57,8 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Dashboard"),
-        backgroundColor: Color(0xff4a4a4a),
+        backgroundColor: Color(0xff6d4c41),
+        centerTitle: true,
         automaticallyImplyLeading: false,
         actions: [
           Align(
@@ -141,7 +142,7 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
             const Text(
               'Select Class:',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 15.0,
               ),
@@ -159,7 +160,7 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
                   .toList(),
               hint: const Text(
                 'Select a class',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
               ),
               onChanged: (newValue) {
                 setState(() {
@@ -177,10 +178,9 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
                 onChanged: (query) {
                   if (query.isEmpty == true) {
                     getAllData();
-                  }
-                  else {
+                  } else {
                     searchFromFirebase(query);
-                  }                 
+                  }
                 },
               ),
             ),
@@ -202,11 +202,11 @@ class MentorSearchScreenState extends State<MentorSearchScreen> {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
+                          border: Border.all(color: Colors.black),
                           borderRadius: BorderRadius.circular(10),
                           gradient: const LinearGradient(colors: [
-                            Color.fromARGB(255, 95, 94, 94),
-                            Colors.grey
+                            Color.fromARGB(255, 233, 184, 203),
+                            Color.fromARGB(255, 236, 203, 221)
                           ])),
                       child: searchMentor(
                         searchResult[index]['name'],

@@ -20,13 +20,14 @@ class _SignInState extends State<SignIn> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 0, 0, 0),
-          Color.fromARGB(255, 43, 40, 41),
-          Color.fromARGB(255, 105, 102, 103)
-        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+      
+        body: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(colors: [
+            Color.fromARGB(255, 0, 0, 0),
+            Color.fromARGB(255, 43, 40, 41),
+            Color.fromARGB(255, 105, 102, 103)
+          ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: SingleChildScrollView(
             child: Padding(
           padding: EdgeInsets.fromLTRB(
@@ -35,11 +36,15 @@ class _SignInState extends State<SignIn> {
             children: <Widget>[
               logoWidget("images/learnaidlogo.jpeg"),
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-              reusableTextField("Enter Username", Icons.person_outline, false,
-                  _emailTextController),
+              reusableTextField(
+                "Enter Username",
+                Icons.person_outline,
+                false,
+                _emailTextController,
+              ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               reusableTextField("Enter Password", Icons.lock_outline, true,
-                  _passwordTextController),
+                  _passwordTextController,),
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               signInSignUpButton(context, true, () {
                 FirebaseAuth.instance
@@ -68,8 +73,8 @@ class _SignInState extends State<SignIn> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have an account?  ",
-            style: TextStyle(color: Colors.white70)),
+        const Text("Don't have an account? ",
+            style: TextStyle(color: Colors.white)),
         GestureDetector(
           onTap: () {
             Navigator.push(

@@ -54,7 +54,7 @@ class _NGOInformationState extends State<NGOInformation> {
       backgroundColor: const Color(0xFFA1D2CE),
       appBar: AppBar(
         // backgroundColor: const Color(0xFF62A8AC),
-        backgroundColor: Color(0xff4a4a4a),
+        backgroundColor:  Color(0xff6d4c41),
         centerTitle: true,
         title: const Padding(
           padding: EdgeInsets.all(5.0),
@@ -96,7 +96,7 @@ class _NGOInformationState extends State<NGOInformation> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: Colors.grey,
+                              color: Colors.black,
                               width: 1.0,
                             ),
                           ),
@@ -114,7 +114,7 @@ class _NGOInformationState extends State<NGOInformation> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: Colors.grey,
+                              color: Colors.black,
                               width: 1.0,
                             ),
                           ),
@@ -132,7 +132,7 @@ class _NGOInformationState extends State<NGOInformation> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: Colors.grey,
+                              color: Colors.black,
                               width: 1.0,
                             ),
                           ),
@@ -171,7 +171,7 @@ class _NGOInformationState extends State<NGOInformation> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: Colors.grey,
+                              color: Colors.black,
                               width: 1.0,
                             ),
                           ),

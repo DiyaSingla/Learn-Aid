@@ -40,7 +40,7 @@ class NextNGOPageState extends State<NextNGOPage> {
           backgroundColor: const Color(0xFFA1D2CE),
           appBar: AppBar(
             // backgroundColor: const Color(0xFF62A8AC),
-            backgroundColor: Color(0xff4a4a4a),
+            backgroundColor: Color(0xff6d4c41),
             centerTitle: true,
             title: const Padding(
               padding: EdgeInsets.all(5.0),
@@ -86,7 +86,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       width: MediaQuery.of(context).size.width * 0.75,
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
@@ -130,7 +130,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       width: MediaQuery.of(context).size.width * 0.75,
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
@@ -175,7 +175,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       width: MediaQuery.of(context).size.width * 0.75,
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
@@ -220,7 +220,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       width: MediaQuery.of(context).size.width * 0.75,
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
@@ -265,7 +265,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       width: MediaQuery.of(context).size.width * 0.75,
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
@@ -313,7 +313,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       padding: const EdgeInsets.symmetric(
                           vertical: 1, horizontal: 0),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
@@ -354,7 +354,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       width: MediaQuery.of(context).size.width * 0.75,
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
@@ -395,7 +395,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       width: MediaQuery.of(context).size.width * 0.75,
                       padding: EdgeInsets.all(2.0),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(7),
                       ),
                       child: Row(
@@ -435,7 +435,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                       title: const Text(
                           'We hereby confirm that we will provide all the resources to conduct the classes in an offline mode.',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black54,
                             fontFamily: "Alkalami",
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
@@ -495,7 +495,7 @@ class NextNGOPageState extends State<NextNGOPage> {
                               )),
                     );
                   },
-                  backgroundColor: Color(0xff4a4a4a),
+                  backgroundColor: Color(0xff6d4c41),
                   child: const Text(
                     'Submit',
                     style: TextStyle(

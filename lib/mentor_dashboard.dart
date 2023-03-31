@@ -45,8 +45,9 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Dashboard"),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color(0xff6d4c41),
         automaticallyImplyLeading: false,
+        centerTitle: true,
         actions: [
           Align(
             alignment: Alignment.centerLeft,
@@ -137,10 +138,9 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
                 onChanged: (query) {
                   if (query.isEmpty) {
                     getAllData();
-                  }
-                  else {
+                  } else {
                     searchFromFirebase(query);
-                  }                
+                  }
                 },
               ),
             ),
@@ -159,11 +159,11 @@ class NGOSearchScreenState extends State<NGOSearchScreen> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
+                            border: Border.all(color: Colors.black),
                             borderRadius: BorderRadius.circular(10),
                             gradient: const LinearGradient(colors: [
-                              Color.fromARGB(255, 95, 94, 94),
-                              Colors.grey
+                              Color.fromARGB(255, 233, 184, 203),
+                              Color.fromARGB(255, 236, 203, 221)
                             ])),
                         child: searchNGO(
                             searchResult[index]['name'],

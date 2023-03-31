@@ -10,13 +10,14 @@ Future main() async {
   );
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Learn Aid',
-      theme: ThemeData.dark(),
+      //theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(
         title: 'Learn Aid',

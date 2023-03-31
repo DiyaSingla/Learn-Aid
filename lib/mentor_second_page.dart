@@ -45,8 +45,9 @@ class _NextMentorPageState extends State<NextMentorPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFA1D2CE),
       appBar: AppBar(
-        backgroundColor: Color(0xff4a4a4a),
+        backgroundColor: Color(0xff6d4c41),
         title: const Text('Mentoring Information'),
+        centerTitle: true,
       ),
       body: Container(
         constraints: const BoxConstraints.expand(),
@@ -68,7 +69,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                   const Text(
                     'Classes:',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 18.0,
                     ),
@@ -79,7 +80,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                        color: Colors.grey,
+                        color: Colors.black,
                         width: 1,
                       ),
                     ),
@@ -92,7 +93,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                             child: Text(
                               'Select a class',
                               style: TextStyle(
-                                color: Colors.grey[600],
+                                color: Colors.black,
                                 fontSize: 16,
                               ),
                             ),
@@ -110,7 +111,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                               .toList(),
                           hint: const Text(
                             'Select a class',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                           ),
                           onChanged: (newValue) {
                             setState(() {
@@ -125,7 +126,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                   const Text(
                     'Subjects:',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 18.0,
                     ),
@@ -135,7 +136,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                        color: Colors.grey,
+                        color: Colors.black,
                         width: 1,
                       ),
                     ),
@@ -148,7 +149,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                             child: Text(
                               'Select a subject',
                               style: TextStyle(
-                                color: Colors.grey[600],
+                                color: Colors.black,
                                 fontSize: 16,
                               ),
                             ),
@@ -166,7 +167,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                               .toList(),
                           hint: const Text(
                             'Select a subject',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                           ),
                           onChanged: (newValue) {
                             setState(() {
@@ -181,7 +182,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                   const Text(
                     'Topics:',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 18.0,
                     ),
@@ -192,7 +193,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                        color: Colors.grey,
+                        color: Colors.black,
                         width: 1,
                       ),
                     ),
@@ -205,7 +206,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                             child: Text(
                               'Select a topic',
                               style: TextStyle(
-                                color: Colors.grey[600],
+                                color: Colors.black,
                                 fontSize: 16,
                               ),
                             ),
@@ -223,7 +224,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                               .toList(),
                           hint: const Text(
                             'Select a topic',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                           ),
                           onChanged: (newValue) {
                             setState(() {
@@ -239,7 +240,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                     title: const Text(
                       'I hereby confirm that I will conduct the classes in an offline mode at the above chosen day and time every week.',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontFamily: "Alkalami",
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
@@ -261,7 +262,7 @@ class _NextMentorPageState extends State<NextMentorPage> {
                               style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
-                                        Color(0xff4a4a4a)),
+                                        Color(0xff6d4c41)),
                               ),
                               onPressed: () {
                                 // Store the value when the button is pressed

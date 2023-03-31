@@ -25,7 +25,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
       backgroundColor: const Color(0xFFA1D2CE),
       appBar: AppBar(
         // backgroundColor: const Color(0xFF62A8AC),
-        backgroundColor: Color(0xff4a4a4a),
+        backgroundColor:  Color(0xff6d4c41),
         centerTitle: true,
         title: const Padding(
           padding: EdgeInsets.all(5.0),
@@ -77,7 +77,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                       Text(
                         "Personal Information",
                         style: TextStyle(
-                          color: Color.fromARGB(255, 255, 255, 255),
+                          color: Colors.black,
                           fontFamily: "Alkalami",
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -98,7 +98,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                       const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.white.withOpacity(0.3),
+                    color: Colors.white.withOpacity(0.7),
                   ),
                   child: TextField(
                     onChanged: (value) {
@@ -112,7 +112,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     decoration: InputDecoration(
                       labelText: 'Enter Your Name',
                       labelStyle: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
+                        color: Colors.black,
                       ),
                       border: InputBorder.none,
                       contentPadding: const EdgeInsets.all(8),
@@ -130,7 +130,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
+                    color: Colors.white.withOpacity(0.7),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: TextField(
@@ -145,7 +145,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     decoration: InputDecoration(
                       labelText: 'Enter Your Age',
                       labelStyle: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
+                        color: Colors.black,
                       ),
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(8),
@@ -163,7 +163,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
+                    color: Colors.white.withOpacity(0.7),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: TextField(
@@ -175,7 +175,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     decoration: InputDecoration(
                       labelText: 'Enter Your Phone Number',
                       labelStyle: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
+                        color: Colors.black,
                       ),
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(8),
@@ -193,7 +193,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                       const Text(
                         "Are you a college student?",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Alkalami",
                           fontSize: 15,
@@ -213,7 +213,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                           const Text(
                             "Yes",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Alkalami",
                               fontSize: 15,
@@ -235,7 +235,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                           const Text(
                             "No",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Alkalami",
                               fontSize: 15,
@@ -254,7 +254,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
+                    color: Colors.white.withOpacity(0.7),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: TextField(
@@ -269,7 +269,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                     decoration: InputDecoration(
                       labelText: 'Enter Your Organisation',
                       labelStyle: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
+                        color: Colors.black,
                       ),
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(8),
@@ -287,7 +287,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                       launch('https://myaadhaar.uidai.gov.in/verifyAadhaar');
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white.withOpacity(0.3),
+                      backgroundColor: Colors.white.withOpacity(0.7),
                       padding: EdgeInsets.zero,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -297,7 +297,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                       alignment: Alignment.center,
                       height: MediaQuery.of(context).size.height * 0.06,
                       width: MediaQuery.of(context).size.width * 0.75,
-                      child: Text('Verify Your Aadhar Details Here'),
+                      child: Text('Verify Your Aadhar Details Here', style: TextStyle(color: Colors.black),),
                     ),
                   ),
                 ),
@@ -336,7 +336,7 @@ class _MentorFirstPageState extends State<MentorFirstPage> {
                       ),
                     );
                   },
-                  backgroundColor: Color(0xff4a4a4a),
+                  backgroundColor:  Color(0xff6d4c41),
                   child: const Text(
                     'Next',
                     style: TextStyle(

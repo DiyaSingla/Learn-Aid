@@ -15,13 +15,7 @@ class _AboutUsState extends State<AboutUs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: IconButton(
-        //   icon: Icon(Icons.arrow_back),
-        //   onPressed: () {
-        //     // Store the value when the button is pressed
-        //     Navigator.pop(context);
-        //   },
-        // ),
+        backgroundColor: Color(0xff6d4c41),
         title: Text('Contact Us'),
         centerTitle: true,
       ),
@@ -38,7 +32,7 @@ class _AboutUsState extends State<AboutUs> {
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               const Text(
-                'Contact Us',
+                'Reach out to us by -',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.normal,
@@ -49,7 +43,7 @@ class _AboutUsState extends State<AboutUs> {
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.grey,
+                    color: Colors.black,
                     width: 5,
                   ),
                   borderRadius: BorderRadius.circular(10),
@@ -164,15 +158,6 @@ class _AboutUsState extends State<AboutUs> {
                   ],
                 ),
               ),
-              // Center(
-              //   child: ElevatedButton(
-              //     onPressed: () {
-              //       // Store the value when the button is pressed
-              //       Navigator.pop(context);
-              //     },
-              //     child: const Text('GO BACK'),
-              //   ),
-              // )
             ],
           ),
         ),
